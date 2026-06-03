@@ -1,0 +1,19 @@
+:root {
+    --bg: #f5f7fa;
+    --white: #ffffff;
+    --black: #111827;
+    --gray: #6b7280;
+    --border: #d1d5db;
+    --blue: #2563eb;
+    --blue-hover: #1d4ed8;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    --color-fondo: #181717;
+    --color-texto: #fff;
+    --color-header: linear-gradient(to bottom, #000, #222);
+    --color-main: linear-gradient(to bottom, #2e2d2d, #000);
+    --color-nav: #272626;
+    --color-tarjeta: #333;
+    --color-borde-tarjeta: #504d4d;
+    --color-fot: #0e0e0e;
+    --celeste-fot: #4fc7f7;
+}
