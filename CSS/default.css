@@ -69,7 +69,7 @@ header {
 
 header .header-logo {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 0.5fr 2fr;
     align-items: center;
     justify-content: space-between;
     padding: 0px 20px 0px 20px;
@@ -93,7 +93,7 @@ header .header-logo img {
 .buscador-input {
     width: 100%;
     padding: 8px 12px;
-    border: solid 2px var(--gray);
+    border: solid 2px var(--color-texto-hover);
     border-radius: 5px;
     background-color: var(--color-buscado);
     color: var(--color-texto-oscuro);
@@ -157,9 +157,8 @@ header:hover {
 }
 
 header nav ul li a:hover {
-    background-color: var(--blue);
-
-    color: white;
+    text-decoration: underline var(--color-texto-hover);
+    color: var(--color-texto-hover);
     transform: translateY(-2px);
 }
 
@@ -185,12 +184,12 @@ footer {
 
 /* ==============inicio footer============== */
 footer {
-    background-color: var(--color-fot);
-    border-top: 3px solid var(--celeste-fot);
+    background-color: var(--color-fondo);
+    border-top: 3px solid var(--blue-hover);
     /* Línea xd */
     padding: 40px 80px;
     font-family: Arial, sans-serif;
-    color: var(--celeste-fot);
+    color: var(--blue-hover);
 }
 
 .footer-container {
@@ -215,14 +214,15 @@ footer {
 
 .footer-column a {
     display: block;
-    color: var(--color-texto);
+    color: var(--border);
     text-decoration: none;
     margin-bottom: 8px;
     font-size: 0.95rem;
 }
 
 .footer-column a:hover {
-    text-decoration: underline;
+    text-decoration: underline var(--color-texto-hover);
+    color: var(--color-texto-hover);
 }
 
 .footer-bottom {
