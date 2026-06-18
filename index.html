@@ -1,151 +1,241 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/style.css">
+    <title>LIN-Tech | Tecnología para todo Argentina</title>
+    <meta name="description"
+        content="Distribuidora tecnológica especializada en hardware, periféricos y componentes electrónicos.">
     <link rel="stylesheet" href="CSS/default.css">
-    
-    <title>Prueba</title>
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body>
+
+    <!-- HEADER -->
     <header class="header">
-        <div class="header-logo">
-
-                <h1>LIN</h1>
-            <div class="buscador">
-                <input type="search" class="buscador-input" placeholder="Buscar...🔍">
-
+        <div class="header-container">
+            <a href="#" class="logo">
+                <span class="logo-lin">LIN</span>
+                <span class="logo-tech">TECH</span>
+            </a>
+            <div class="buscador-container">
+                <input type="search" class="buscador-input" placeholder="Buscar productos...">
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li>
+                        <a href="#">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#">Productos</a>
+                    </li>
+                    <li>
+                        <a href="#">Nosotros</a>
+                    </li>
+                    <li>
+                        <a href="#">Vender</a>
+                    </li>
+                    <li>
+                        <a href="#">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="icon-btn">
+                    🛒
+                </button>
+                <button class="login-btn">
+                    Iniciar sesión
+                </button>
             </div>
         </div>
-        <nav class="nav">
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#div1">Nosotros</a></li>
-                <li><a href="#div3">asd</a></li>
-                <li><a href="#div3">Vender</a></li>
-                <li><a href="#div3">Contacto</a></li>
-            </ul>
-        </nav>
     </header>
+
+    <!-- MAIN -->
+
     <main>
-        <section id="video">
-            <iframe width="auto" height="auto" src="https://www.youtube.com/embed/URwVV5tTJIA?si=Jl3n2GrsBMqi3IQE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </section>
-        <section id="Promos" class="container-productos">
-            <div id="container-productos">
-                <div id="producto" class="producto1">
-                    
-                    <div class="info_prod">
-                        <h3>Producto 1</h3>
-                        <p>Descripción del producto 1</p>
-                        <span>$1</span>
-                    </div>
-                </div>
-                <div id="producto" class="producto2">
-                    
-                    <div class="info_prod">
-                        <h3>Producto 2</h3>
-                        <p>Descripción del producto 2</p>
-                        <span>$2</span>
-                    </div>
-                </div>
-                <div id="producto" class="producto3">
-                    
-                    <div class="info_prod">
-                        <h3>Producto 3</h3>
-                        <p>Descripción del producto 3</p>
-                        <span>$3</span>
-                    </div>
-                </div>
-                <div id="producto" class="producto4">
-                    
-                    <div class="info_prod">
-                        <h3>Producto 4</h3>
-                        <p>Descripción del producto 4</p>
-                        <span>$4</span>
-                    </div>
-                </div>
-                <div id="producto" class="producto5">
-                    
-                    <div class="info_prod">
-                        <h3>Producto 5</h3>
-                        <p>Descripción del producto 5</p>
-                        <span>$5</span>
-                    </div>
-                </div>
-                <div id="producto" class="producto6">
-                    
-                    <div class="info_prod">
-                        <h3>Producto 6</h3>
-                        <p>Descripción del producto 6</p>
-                        <span>$6</span>
-                    </div>
-                </div>
+        <!-- HERO VIDEO -->
+        <section class="hero-video">
+            <video class="video-banner" autoplay muted loop playsinline>
+                <source src="videos/Banner-index.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay">
+                <h1>
+                    Tecnología de última generación
+                </h1>
+                <p>
+                    Productos importados para todo Argentina.
+                </p>
+                <button class="hero-btn">
+                    Ver catálogo
+                </button>
             </div>
-            <div id="controlador-productos">
-                <button id="btn-anterior" class="btn-controlador"><</button>
-                <div id="lis-prod"> <span class="p1"></span><span class="p2"></span><span class="p3"></span><span class="p4"></span><span class="p5"></span><span class="p6"></span></div>
-                <button id="btn-siguiente" class="btn-controlador">></button>
+        </section>
+        <!-- PRODUCTOS -->
+        <section class="productos">
+            <div class="section-header">
+                <h2>
+                    Productos destacados
+                </h2>
+                <p>
+                    Descubrí nuestros productos más vendidos.
+                </p>
+            </div>
+            <div class="slider-productos">
+                <button class="slider-btn prev">
+                    ❮
+                </button>
+                <div class="productos-track">
+                    <article class="producto">
+                        <img src="IMG/productos/producto1.png" alt="RTX 5090">
+                        <div class="producto-info">
+                            <h3>RTX 5090</h3>
+                            <p>
+                                Potencia extrema para gaming y trabajo profesional.
+                            </p>
+                            <span class="precio">
+                                $2.999.999
+                            </span>
+                            <button>
+                                Ver producto
+                            </button>
+                        </div>
+                    </article>
+                    <article class="producto">
+                        <img src="IMG/productos/producto2.png" alt="Ryzen 9">
+                        <div class="producto-info">
+                            <h3>Ryzen 9 9950X</h3>
+                            <p>
+                                Procesador de alto rendimiento.
+                            </p>
+                            <span class="precio">
+                                $899.999
+                            </span>
+                            <button>
+                                Ver producto
+                            </button>
+                        </div>
+                    </article>
+                    <article class="producto">
+                        <img src="IMG/productos/producto3.png" alt="Kingston Fury">
+                        <div class="producto-info">
+                            <h3>Kingston Fury DDR5</h3>
+                            <p>
+                                Memoria de última generación.
+                            </p>
+                            <span class="precio">
+                                $199.999
+                            </span>
+                            <button>
+                                Ver producto
+                            </button>
+                        </div>
+                    </article>
+                    <article class="producto">
+                        <img src="IMG/productos/producto4.png" alt="Samsung Odyssey">
+                        <div class="producto-info">
+                            <h3>Samsung Odyssey G7</h3>
+                            <p>
+                                Monitor gamer de 240Hz.
+                            </p>
+                            <span class="precio">
+                                $799.999
+                            </span>
+                            <button>
+                                Ver producto
+                            </button>
+                        </div>
+                    </article>
+                    <article class="producto">
+                        <img src="IMG/productos/producto5.png" alt="ASUS ROG">
+                        <div class="producto-info">
+                            <h3>ASUS ROG Strix</h3>
+                            <p>
+                                Notebook gamer premium.
+                            </p>
+                            <span class="precio">
+                                $3.499.999
+                            </span>
+                            <button>
+                                Ver producto
+                            </button>
+                        </div>
+                    </article>
+                    <article class="producto">
+                        <img src="IMG/productos/producto6.png" alt="Logitech G Pro X">
+                        <div class="producto-info">
+                            <h3>Logitech G Pro X</h3>
+                            <p>
+                                Auriculares para esports.
+                            </p>
+                            <span class="precio">
+                                $159.999
+                            </span>
+                            <button>
+                                Ver producto
+                            </button>
+                        </div>
+                    </article>
+                </div>
+                <button class="slider-btn next">
+                    ❯
+                </button>
+            </div>
+            <div class="slider-indicators">
+                <span class="active"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </section>
     </main>
 
-        <footer>
-            <div class="footer-container">
-                <div class="footer-column">
-                    <h4>Institucional</h4>
-                    <a href="Principal.html">Homepage</a>
-                    <a
-                        href="https://www.google.com/search?q=maps+neuquen&rlz=1C1VDKB_esAR1079AR1079&oq=maps&gs_lcrp=EgZjaHJvbWUqBwgBEAAYgAQyEggAEEUYORiDARixAxjJAxiABDIHCAEQABiABDIKCAIQABiSAxiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIGCAcQBRhA0gEJMTA1NzZqMGo0qAIAsAIA&sourceid=chrome&ie=UTF-8">LIN-Tech
-                        Argentina</a>
-                    <a
-                        href="https://www.google.com/search?q=maps+estados+unidos&sca_esv=ad06492741db6b4e&rlz=1C1VDKB_esAR1079AR1079&sxsrf=AE3TifM15h2v-oncaOG1ETdvPrL1owFbww%3A1762283809423&ei=IVEKaZrDGfSr1sQPjZeIsAQ&oq=maps+es&gs_lp=Egxnd3Mtd2l6LXNlcnAiB21hcHMgZXMqAggBMgoQABiABBgUGIcCMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAESPoyUMkEWOkgcAx4AJABAJgBkAGgAfILqgEENC4xMLgBA8gBAPgBAZgCFaACygjCAgoQABiwAxjWBBhHwgINEAAYgAQYsAMYQxiKBcICDhAAGLADGOQCGNYE2AEBwgITEC4YgAQYsAMYQxjIAxiKBdgBAcICGRAuGIAEGLADGEMYxwEYyAMYigUYrwHYAQHCAhkQLhiABBiwAxjRAxhDGMcBGMgDGIoF2AEBwgICECbCAggQABiABBiiBMICBxAhGKABGArCAgUQABjvBcICBhAAGBYYHsICBxAjGLADGCfCAgQQIxgnwgIKECMYgAQYJxiKBcICBxAAGIAEGArCAhMQABiABBixAxiDARgUGIcCGMkDwgIIEAAYgAQYsQOYAwCIBgGQBhO6BgYIARABGAmSBwQxMi45oAejbbIHAzAuObgHjQjCBwYwLjguMTPIB0k&sclient=gws-wiz-serp">LIN-Tech
-                        Newsroom</a>
-                    <a href="terminos.html">Código de conducta</a>
-                    <a href="contacto.html">Contacto</a>
-                </div>
+    <!-- FOOTER -->
 
-                <div class="footer-column">
-                    <h4>Explorá LIN-Tech</h4>
-                    <a href="https://play.google.com/store/games?hl=es_AR">App LIN-Tech</a>
-                    <a
-                        href="https://www.amazon.com/s?k=bicicletas&__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2ZBMAUFCVPD1N&sprefix=bicicletas%2Caps%2C264&ref=nb_sb_noss_1">Bicicletas</a>
-                    <a href="nosotros.html">Innovación y tecnología</a>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Modelos</h4>
-                    <a href="">Nothing</a>
-                    <a href="">Nothing</a>
-                    <a href="">Nothing</a>
-                    <a href="">Nothing</a>
-                    <a href="">Nothing</a>
-                    <a href="">Nothing</a>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Redes Sociales</h4>
-                    <a href="https://www.facebook.com/?locale=es_LA" target="_blank">Facebook</a>
-                    <a href="https://www.instagram.com" target="_blank">Instagram</a>
-                    <a href="https://www.youtube.com/watch?v=70fP1M8hZVA" target="_blank">YouTube</a>
-                    <a href="https://www.tiktok.com/es-419/" target="_blank">TikTok</a>
-                </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Institucional</h4>
+                <a href="#">Inicio</a>
+                <a href="#">Nosotros</a>
+                <a href="#">Contacto</a>
+                <a href="#">Términos y condiciones</a>
             </div>
-
-            <div class="footer-bottom">
-                <p>
-                    <a href="terminos.html">Política de privacidad</a> |
-                    <a href="terminos.html">Términos y condiciones</a> |
-                    <a href="terminos.html">Política de cookies</a>
-                </p>
-                <p>© LIN-Tech</p>
+            <div class="footer-column">
+                <h4>Productos</h4>
+                <a href="#">Componentes</a>
+                <a href="#">Periféricos</a>
+                <a href="#">Notebooks</a>
+                <a href="#">Monitores</a>
             </div>
+            <div class="footer-column">
+                <h4>Soporte</h4>
+                <a href="#">Centro de ayuda</a>
+                <a href="#">Garantías</a>
+                <a href="#">Seguimiento</a>
+            </div>
+            <div class="footer-column">
+                <h4>Redes</h4>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">YouTube</a>
+                <a href="#">TikTok</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                © 2026 LIN-Tech - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
 
-        </footer>
-        <script src="JS/script.js"></script>
+    <script src="JS/header.js"></script>
+    <script src="JS/slider.js"></script>
+
 </body>
 
 </html>
