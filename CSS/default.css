@@ -1,5 +1,5 @@
 :root {
-    --bg: #f5f7fa;
+
     --white: #ffffff;
     --black: #111827;
     
@@ -9,11 +9,6 @@
     --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     --color-fondo: #181717;
     --color-texto: #fff;
-
-    --color-main: linear-gradient(to bottom, #2e2d2d, #000);
-    --color-nav: #272626;
-    --color-tarjeta: #333;
-    --color-borde-tarjeta: #504d4d;
     --color-fot: #0e0e0e;
     --celeste-fot: #4fc7f7;
 }
@@ -40,6 +35,7 @@ body {
     color: var(--black);
     min-height: 100vh;
     line-height: 1.6;
+    margin: 0;
 }
 
 /* ===== HEADER ===== */
@@ -56,15 +52,28 @@ header {
     align-items: center;
     background: var(--blue);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--color-fot);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-    transition: transform 0.4s ease;
+    transition: all 0.4s ease;
     transform: translateY(0);
+    text-align: center;
 }
 
 .header-oculto {
-    transform: translateY(-100%);
+    transform: translateY(-40%);
+    position: sticky;
+    left: 25%;
+    width: 60%;
+    z-index: 100;
+    transition: all 0.4s ease;
+    transform: translateY(0);
+    border-radius: 0px 0px 10px 10px;
+}
 
+.buscador-oculto {
+    opacity: 0;
+    position: absolute;
+    transition: all 0s  ease;
 }
 
 header .header-logo {
@@ -77,6 +86,7 @@ header .header-logo {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-texto-claro);
+    height: 100%;
 }
 
 header .header-logo img {
@@ -89,6 +99,7 @@ header .header-logo img {
     display: flex;
     align-items: center; 
     width: 100%;
+    transition: all 0s  ease;
 }
 .buscador-input {
     width: 100%;
@@ -130,6 +141,7 @@ header:hover {
     gap: 10px;
     align-items: center;
     background-color: var(--color-nav);
+    border-left: solid 1px var(--color-fot);
 }
 
 
@@ -140,7 +152,7 @@ header:hover {
 }
 .nav ul {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(10, auto);
     align-items: center;
     justify-content: center;
     list-style: none;
@@ -165,13 +177,6 @@ header nav ul li a:hover {
 
 /* ===== FOOTER ===== */
 
-footer {
-    background-color: var(--color-fot);
-    border-top: 3px solid var(--celeste-fot);
-    padding: 40px 80px;
-    color: var(--celeste-fot);
-}
-
 .footer-column a {
     color: var(--blanco);
 }
@@ -184,12 +189,15 @@ footer {
 
 /* ==============inicio footer============== */
 footer {
+    transform: translateY(10%);
     background-color: var(--color-fondo);
     border-top: 3px solid var(--blue-hover);
     /* Línea xd */
-    padding: 40px 80px;
+    padding: 7% 10%;
+    margin: 0;
     font-family: Arial, sans-serif;
     color: var(--blue-hover);
+
 }
 
 .footer-container {
@@ -283,4 +291,9 @@ footer .final-info {
     margin-top: 10px;
     font-size: 14px;
     color: #1e90ff;
+}
+
+
+@media (max-width: 670px) {
+    
 }
