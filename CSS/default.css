@@ -75,7 +75,7 @@ body {
     transition: all .3s ease;
 }
 
-/* CONTENEDOR HEADER    */
+/* CONTENEDOR HEADER */
 
 .header-container {
     width: 90%;
@@ -121,7 +121,7 @@ body {
     border-radius: 12px;
     border: 1px solid var(--border);
     background: var(--text);
-    color: white;
+    color: var(--bg-secondary);
     outline: none;
 }
 
