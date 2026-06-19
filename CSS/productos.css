@@ -1,0 +1,100 @@
+/*Referencia para agregar los colores*/
+:root {
+    --celeste-fot: #4fc7f7;
+    /* Fondo */
+    --bg: #0b1120;
+    --bg-secondary: #111827;
+    /* Tarjetas */
+    --card: #1f2937;
+    /* Colores principales */
+    --primary: #2563eb;
+    --primary-hover: #3b82f6;
+    /* Textos */
+    --text: #f8fafc;
+    --text-secondary: #94a3b8;
+    /* Extras */
+    --success: #10b981;
+    --border: rgba(255, 255, 255, .08);
+    --shadow:0 10px 30px rgba(0, 0, 0, .25);
+    --transition:all .3s ease;
+}
+
+/* CONTENEDOR GENERAL */
+.contenedor-productos{
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    margin-top: 120px;
+    margin-left: 20px;
+    margin-right: auto;
+    gap: 30px;
+}
+
+/* SIDEBAR */
+.sidebar{
+    background-color: var(--card);
+    padding: 25px;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    height: 100%;
+
+}
+.sidebar h2{
+    color: white;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+}
+.categorias{
+    list-style: none;
+}
+.categorias li{
+    margin-bottom: 15px;
+}
+.categorias a{
+    text-decoration: none;
+    color: var(--text-secondary);
+    padding: 10px 12px;
+    border-radius: 10px;
+}
+
+/* PRODUCTOS MAIN*/
+.productos-main{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    
+}
+.productos-main h1{
+    color: white;
+    font-size: 1.5rem;
+}
+
+/*GRILLA DE LOS PRODUCTOS*/
+.grid-productos{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); /*Crea la grilla de columnas responsive */
+    gap: 25px;
+}
+
+
+/*TARJETAS DE LOS PRODUCTOS*/
+
+/*Esto no es definitivo será cambiado en un futuro*/
+
+.producto-card{
+    width: 320px;
+    height: 420px;
+    background: var(--card);
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+}
+
+.producto-info{
+    color: var(--text);
+}
