@@ -208,7 +208,7 @@ body {
 
 
 main {
-    margin-top: 90px;
+    margin-top: 90px 0 0 0;
 }
 
 
@@ -219,7 +219,7 @@ footer {
     background:var(--bg);
     color:white;
     padding:70px 10% 30px;
-    margin-top:80px;
+    margin-top:00px;
     border-top:3px solid var(--primary);
 }
 
