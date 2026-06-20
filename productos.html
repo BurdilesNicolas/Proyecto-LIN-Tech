@@ -52,152 +52,175 @@
             </div>
         </div>
     </header>
-
-    <!-- MAIN -->
-    <div class="contenedor-productos">
-        
+    <main class="productos-main">
         <aside class="sidebar">
-            <h2>Categorias</h2>
+            <h2>Categorías</h2>
             <ul class="categorias">
-                <li><a href="">Monitores</a></li>
-                <li><a href="">Procesadores</a></li>
-                <li><a href="">Memorias RAM</a></li>
-                <li><a href="">Tarjetas de Video</a></li>
-                <li><a href="">Almacenamiento</a></li>
-                <li><a href="">Perifericos</a></li>
-                <li><a href="">Monitores</a></li>
+                <li>
+                    <button class="categoria-btn active" data-categoria="todos">
+                        Todos
+                    </button>
+                </li>
+                <li>
+                    <button class="categoria-btn" data-categoria="gpu">
+                        Tarjetas de Video
+                    </button>
+                </li>
+                <li>
+                    <button class="categoria-btn" data-categoria="procesador">
+                        Procesadores
+                    </button>
+                </li>
+                <li>
+                    <button class="categoria-btn" data-categoria="ram">
+                        Memorias RAM
+                    </button>
+                </li>
             </ul>
-
         </aside>
-        <main class="productos-main">
-                <h1>Productos destacados</h1>
+        <section class="contenedor-productos">
+            <div class="productos-header">
+                <div>
+                    <h1>Tienda LIN-Tech</h1>
+                    <p>
+                        Descubrí nuestra selección de productos tecnológicos.
+                    </p>
+                </div>
+            </div>
+            <div class="productos-toolbar">
+                <input type="search" class="busqueda-productos" placeholder="Buscar productos...">
+                <select class="ordenar-productos">
+                    <option value="destacados"> Destacados </option>
+                    <option value="precio-menor"> Precio menor </option>
+                    <option value="precio-mayor"> Precio mayor </option>
+                    <option value="nombre"> Nombre </option>
+                </select>
+            </div>
             <section class="grid-productos">
-
-                <article class="producto-card">
-                    <img src="IMG/productos/geforce-rtx-5090.jpg" alt="RTX 5090">
-                    <div class="producto-info">
-                        <h3>RTX 5090</h3>
-                        <p>
-                            Potencia extrema para gaming y trabajo profesional.
-                        </p>
-                        <span class="precio">
-                            $2.999.999
-                        </span>
-                        <button>
-                            Ver producto
-                        </button>
-                    </div>
+                <article class="producto-card" data-categoria="procesador" data-precio="799999">
+                    <a href="producto.html?id=rtx5090">
+                        <div class="producto-imagen">
+                            <img src="IMG/productos/geforce-rtx-5090.jpg" alt="RTX 5090">
+                        </div>
+                        <div class="producto-info">
+                            <h3>RTX 5090</h3>
+                            <p>
+                                Potencia extrema para gaming y trabajo profesional.
+                            </p>
+                            <span class="precio">
+                                $2.999.999
+                            </span>
+                            <button class="btn-producto">
+                                Ver producto
+                            </button>
+                        </div>
+                    </a>
                 </article>
                 <article class="producto-card">
-                    <img src="IMG/productos/geforce-rtx-5090.jpg" alt="RTX 5090">
-                    <div class="producto-info">
-                        <h3>RTX 5090</h3>
-                        <p>
-                            Potencia extrema para gaming y trabajo profesional.
-                        </p>
-                        <span class="precio">
-                            $2.999.999
-                        </span>
-                        <button>
-                            Ver producto
-                        </button>
-                    </div>
+                    <a href="producto.html?id=ryzen9">
+                        <div class="producto-imagen">
+                            <img src="IMG/productos/ryzen9.png" alt="Ryzen 9">
+                        </div>
+                        <div class="producto-info">
+                            <h3>AMD Ryzen 9</h3>
+                            <p>
+                                Procesador de alto rendimiento para tareas exigentes.
+                            </p>
+                            <span class="precio">
+                                $799.999
+                            </span>
+                            <button class="btn-producto">
+                                Ver producto
+                            </button>
+                        </div>
+                    </a>
                 </article>
                 <article class="producto-card">
-                    <img src="IMG/productos/geforce-rtx-5090.jpg" alt="RTX 5090">
-                    <div class="producto-info">
-                        <h3>RTX 5090</h3>
-                        <p>
-                            Potencia extrema para gaming y trabajo profesional.
-                        </p>
-                        <span class="precio">
-                            $2.999.999
-                        </span>
-                        <button>
-                            Ver producto
-                        </button>
-                    </div>
+                    <a href="producto.html?id=ddr5">
+                        <div class="producto-imagen">
+                            <img src="IMG/productos/ddr5.png" alt="DDR5">
+                        </div>
+                        <div class="producto-info">
+                            <h3>DDR5 32GB</h3>
+                            <p>
+                                Memoria rápida para gaming y productividad.
+                            </p>
+                            <span class="precio">
+                                $179.999
+                            </span>
+                            <button class="btn-producto">
+                                Ver producto
+                            </button>
+                        </div>
+                    </a>
                 </article>
                 <article class="producto-card">
-                    <img src="IMG/productos/geforce-rtx-5090.jpg" alt="RTX 5090">
-                    <div class="producto-info">
-                        <h3>RTX 5090</h3>
-                        <p>
-                            Potencia extrema para gaming y trabajo profesional.
-                        </p>
-                        <span class="precio">
-                            $2.999.999
-                        </span>
-                        <button>
-                            Ver producto
-                        </button>
-                    </div>
+                    <a href="producto.html?id=ssd2tb">
+                        <div class="producto-imagen">
+                            <img src="IMG/productos/ssd2tb.png" alt="SSD">
+                        </div>
+                        <div class="producto-info">
+                            <h3>SSD NVMe 2TB</h3>
+                            <p>
+                                Velocidad extrema para carga y almacenamiento.
+                            </p>
+                            <span class="precio">
+                                $249.999
+                            </span>
+                            <button class="btn-producto">
+                                Ver producto
+                            </button>
+                        </div>
+                    </a>
                 </article>
                 <article class="producto-card">
-                    <img src="IMG/productos/geforce-rtx-5090.jpg" alt="RTX 5090">
-                    <div class="producto-info">
-                        <h3>RTX 5090</h3>
-                        <p>
-                            Potencia extrema para gaming y trabajo profesional.
-                        </p>
-                        <span class="precio">
-                            $2.999.999
-                        </span>
-                        <button>
-                            Ver producto
-                        </button>
-                    </div>
+                    <a href="producto.html?id=monitor4k">
+                        <div class="producto-imagen">
+                            <img src="IMG/productos/monitor4k.png" alt="Monitor 4K">
+                        </div>
+                        <div class="producto-info">
+                            <h3>Monitor 4K</h3>
+                            <p>
+                                Imagen ultra nítida para trabajo y entretenimiento.
+                            </p>
+                            <span class="precio">
+                                $549.999
+                            </span>
+                            <button class="btn-producto">
+                                Ver producto
+                            </button>
+                        </div>
+                    </a>
                 </article>
                 <article class="producto-card">
-                    <img src="IMG/productos/geforce-rtx-5090.jpg" alt="RTX 5090">
-                    <div class="producto-info">
-                        <h3>RTX 5090</h3>
-                        <p>
-                            Potencia extrema para gaming y trabajo profesional.
-                        </p>
-                        <span class="precio">
-                            $2.999.999
-                        </span>
-                        <button>
-                            Ver producto
-                        </button>
-                    </div>
-                </article>
-                <article class="producto-card">
-                    <img src="IMG/productos/geforce-rtx-5090.jpg" alt="RTX 5090">
-                    <div class="producto-info">
-                        <h3>RTX 5090</h3>
-                        <p>
-                            Potencia extrema para gaming y trabajo profesional.
-                        </p>
-                        <span class="precio">
-                            $2.999.999
-                        </span>
-                        <button>
-                            Ver producto
-                        </button>
-                    </div>
-                </article>
-                <article class="producto-card">
-                    <img src="IMG/productos/geforce-rtx-5090.jpg" alt="RTX 5090">
-                    <div class="producto-info">
-                        <h3>RTX 5090</h3>
-                        <p>
-                            Potencia extrema para gaming y trabajo profesional.
-                        </p>
-                        <span class="precio">
-                            $2.999.999
-                        </span>
-                        <button>
-                            Ver producto
-                        </button>
-                    </div>
+                    <a href="producto.html?id=logitechgpro">
+                        <div class="producto-imagen">
+                            <img src="IMG/productos/logitech-gpro.png" alt="Logitech G Pro">
+                        </div>
+                        <div class="producto-info">
+                            <h3>Logitech G Pro X</h3>
+                            <p>
+                                Precisión y rendimiento para esports.
+                            </p>
+                            <span class="precio">
+                                $129.999
+                            </span>
+                            <button class="btn-producto">
+                                Ver producto
+                            </button>
+                        </div>
+                    </a>
                 </article>
             </section>
-        </main>
-    </div>
-    <!-- FOOTER -->
-
+            <div class="paginacion">
+                <button class="pagina-btn"> ← </button>
+                <button class="pagina-btn active"> 1 </button>
+                <button class="pagina-btn"> 2 </button>
+                <button class="pagina-btn"> 3 </button>
+                <button class="pagina-btn"> → </button>
+            </div>
+        </section>
+    </main>
     <footer>
         <div class="footer-container">
             <div class="footer-column">
@@ -236,7 +259,10 @@
     </footer>
 
     <script src="JS/header.js"></script>
-    <script src="JS/slider.js"></script>
+    <script src="JS/ProductosPageMove.js"></script>
+    <script src="JS/ProductosCreatePage.js"></script>
+    <script src="JS/ProductosShowPage.js"></script>
+    <script src="JS/ProductosOrdenar.js"></script>
 
 </body>
 
