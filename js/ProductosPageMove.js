@@ -1,6 +1,6 @@
-// ===================================
+
 // ELEMENTOS
-// ===================================
+
 
 const productos = Array.from(
     document.querySelectorAll(".producto-card")
@@ -19,9 +19,9 @@ const paginacion =
     document.querySelector(".paginacion");
 
 
-// ===================================
+
 // CONFIGURACIÓN
-// ===================================
+
 
 const productosPorPagina = 6;
 
@@ -34,9 +34,9 @@ let textoBusqueda = "";
 let productosFiltrados = [...productos];
 
 
-// ===================================
+
 // FILTRAR PRODUCTOS
-// ===================================
+
 
 function filtrarProductos() {
 
@@ -71,9 +71,9 @@ function filtrarProductos() {
 }
 
 
-// ===================================
+
 // ORDENAR PRODUCTOS
-// ===================================
+
 
 function ordenarProductos() {
 
@@ -128,9 +128,9 @@ function ordenarProductos() {
 }
 
 
-// ===================================
+
 // MOSTRAR PÁGINA
-// ===================================
+
 
 function mostrarPagina(numeroPagina) {
 
@@ -170,9 +170,9 @@ function mostrarPagina(numeroPagina) {
 }
 
 
-// ===================================
+
 // CREAR PAGINACIÓN
-// ===================================
+
 
 function crearPaginacion() {
 
@@ -296,9 +296,9 @@ function crearPaginacion() {
 }
 
 
-// ===================================
+
 // ACTUALIZAR BOTONES
-// ===================================
+
 
 function actualizarBotones() {
 
@@ -326,9 +326,9 @@ function actualizarBotones() {
 }
 
 
-// ===================================
+
 // BUSCADOR
-// ===================================
+
 
 buscador.addEventListener(
     "input",
@@ -343,9 +343,9 @@ buscador.addEventListener(
 );
 
 
-// ===================================
+
 // ORDENAR
-// ===================================
+
 
 ordenar.addEventListener(
     "change",
@@ -356,42 +356,24 @@ ordenar.addEventListener(
     }
 );
 
-
-// ===================================
 // CATEGORÍAS
-// ===================================
-
 categorias.forEach(boton => {
-
     boton.addEventListener(
         "click",
         () => {
-
             categorias.forEach(btn => {
-
                 btn.classList.remove(
                     "active"
                 );
-
             });
-
             boton.classList.add(
                 "active"
             );
-
             categoriaActual =
                 boton.dataset.categoria;
-
             filtrarProductos();
-
         }
     );
-
 });
-
-
-// ===================================
 // INICIALIZAR
-// ===================================
-
 filtrarProductos();
