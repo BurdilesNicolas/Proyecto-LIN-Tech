@@ -19,7 +19,7 @@
 /* ========================= */
 
 .hero-terminos {
-    background-image: url('../img/terminos.jpg');
+    background-image: url('../IMG/terminso/terminos.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -28,17 +28,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     text-align: center;
-
     min-height: 50vh;
-
     padding: 40px 20px;
 }
 
 .hero-content {
-    background:
-        rgba(0,0,0,0.5);
+    background:rgba(0,0,0,0.5);
     padding: 30px;
     border-radius: 15px;
     backdrop-filter: blur(5px);
@@ -46,24 +42,16 @@
 }
 
 .hero-content h1 {
-
     font-size: 4rem;
     color: white;
-
     margin-bottom: 20px;
 }
 
 .hero-content p {
-
     font-size: 1.2rem;
-
     color: #c1c5ca;
 }
 
-
-/* ========================= */
-/* CONTENIDO */
-/* ========================= */
 
 .terminos-container {
     width: 90%;
@@ -71,51 +59,33 @@
     margin: 50px auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-
     gap: 25px;
-
     padding-bottom: 80px;
 }
 
 .termino-card {
-
-    background:
-        rgba(255,255,255,0.05);
-
+    background:rgba(255,255,255,0.05);
     backdrop-filter: blur(15px);
-
-    border:
-        1px solid rgba(255,255,255,0.08);
-
+    border:1px solid rgba(255,255,255,0.08);
     border-radius: 20px;
-
     padding: 30px;
-
     transition: .3s;
 }
 
 .termino-card:hover {
-
     border-color: #2563eb;
 }
 
 .termino-card h2 {
-
     color: white;
-
     margin-bottom: 15px;
 }
 
 .termino-card p {
-
     color: #c1c5ca;
-
     line-height: 1.8;
 }
 
-/* ========================= */
-/* RESPONSIVE */
-/* ========================= */
 
 @media (max-width: 768px) {
 

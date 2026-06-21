@@ -82,10 +82,7 @@
 
 .productos {
     padding: 100px 5%;
-    background:
-        linear-gradient(to bottom,
-            #0b1120,
-            #111827);
+    background: linear-gradient(to bottom, #0b1120,#111827);
 }
 
 
