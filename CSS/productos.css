@@ -1,472 +1,349 @@
-/* ========================= */
-/* VARIABLES */
-/* ========================= */
-
-:root{
-
-    --bg:#0b1120;
-    --bg-secondary:#111827;
-    --bg-card:#1f2937;
-
-    --primary:#2563eb;
-    --primary-hover:#3b82f6;
-
-    --text:#f8fafc;
-    --text-secondary:#94a3b8;
-
-    --success:#10b981;
-
-    --border:rgba(255,255,255,.08);
-
-    --shadow:
-        0 10px 30px rgba(0,0,0,.25);
-
-    --radius:18px;
-
-    --transition:.3s ease;
+// Variables generales utilizadas en toda la página.
+// Afectan colores, bordes, sombras, tamaños y transiciones.
+:root {
+    --bg: #0b1120;
+    --bg-secondary: #111827;
+    --bg-card: #1f2937;
+    --primary: #2563eb;
+    --primary-hover: #3b82f6;
+    --text: #f8fafc;
+    --text-secondary: #94a3b8;
+    --success: #10b981;
+    --border: rgba(255,255,255,.08);
+    --shadow: 0 10px 30px rgba(0,0,0,.25);
+    --radius: 18px;
+    --transition: .3s ease;
 }
 
-/* ========================= */
-/* MAIN */
-/* ========================= */
-
-.productos-main{
-    display:grid;
-    grid-template-columns:260px 1fr;
-    min-height:100vh;
-    margin-top:80px;
-    background:var(--bg);
+// Contenedor principal de la tienda.
+// Define la estructura general con un sidebar y el contenido.
+.productos-main {
+    min-height: 100vh;
+    margin-top: 80px;
+    background: var(--bg);
+    display: grid;
+    grid-template-columns: 260px 1fr;
 }
 
-.sidebar{
-    position:sticky;
-    top:80px;
-    height:calc(100vh - 80px);
-    padding:30px 20px;
-    background:var(--bg-secondary);
-    border-right:1px solid var(--border);
-    overflow-y:auto;
+// Barra lateral de categorías.
+// Permanece visible al desplazarse y ocupa la primera columna.
+.sidebar {
+    position: sticky;
+    top: 80px;
+    height: calc(100vh - 80px);
+    padding: 30px 20px;
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
 }
 
-.sidebar h2{
-    color:var(--text);
-    margin-bottom:25px;
-    font-size:1.5rem;
-    font-weight:700;
+.sidebar h2 {
+    color: var(--text);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
 }
 
-/* ========================= */
-/* CATEGORIAS */
-/* ========================= */
-
-.categorias{
-    list-style:none;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
+// Botones utilizados para filtrar los productos por categoría.
+// Afectan la apariencia normal, el hover y la categoría activa.
+.categoria-btn {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 12px;
+    background: transparent;
+    color: var(--text-secondary);
+    text-align: left;
+    transition: var(--transition);
 }
 
-.categoria-btn{
-    width:100%;
-    border:none;
-    border-radius:12px;
-    padding:12px 15px;
-    background:transparent;
-    color:var(--text-secondary);
-    text-align:left;
-    cursor:pointer;
-    transition:var(--transition);
-    font-size:.95rem;
+.categoria-btn:hover {
+    background: rgba(37,99,235,.15);
+    color: var(--text);
+    transform: translateX(5px);
 }
 
-.categoria-btn:hover{
-    background:rgba(37,99,235,.15);
-    color:var(--text);
-    transform:translateX(6px);
+.categoria-btn.active {
+    background: var(--primary);
+    color: white;
 }
 
-.categoria-btn.active{
-    background:var(--primary);
-    color:white;
+// Contenedor del contenido principal.
+// Controla el espacio interno donde se muestran los productos.
+.contenedor-productos {
+    min-width: 0;
+    padding: 35px;
 }
 
-/* ========================= */
-/* CONTENIDO */
-/* ========================= */
-
-.contenedor-productos{
-
-    padding:35px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:30px;
+// Título y descripción de la tienda.
+.productos-header h1 {
+    color: var(--text);
+    font-size: 2rem;
+    font-weight: 700;
 }
 
-/* ========================= */
-/* HEADER */
-/* ========================= */
-
-.productos-header{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
+.productos-header p {
+    color: var(--text-secondary);
+    margin-top: 6px;
 }
 
-.productos-header h1{
-
-    color:var(--text);
-
-    font-size:2rem;
+// Barra de búsqueda y ordenamiento.
+// Afecta los controles utilizados para buscar y ordenar productos.
+.productos-toolbar {
+    margin-top: 30px;
 }
 
-.productos-header p{
-
-    color:var(--text-secondary);
-
-    margin-top:6px;
+.buscador-icono {
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
 }
 
-/* ========================= */
-/* TOOLBAR */
-/* ========================= */
-
-.productos-toolbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-    flex-wrap:wrap;
+.busqueda-productos {
+    background: var(--bg-card) !important;
+    color: var(--text) !important;
+    border: 1px solid var(--border) !important;
 }
 
-.busqueda-productos{
-
-    flex:1;
-
-    min-width:250px;
-
-    padding:14px 18px;
-
-    border:none;
-
-    border-radius:14px;
-
-    background:var(--bg-card);
-
-    color:var(--text);
-
-    outline:none;
-
-    border:1px solid var(--border);
+.busqueda-productos::placeholder {
+    color: var(--text-secondary);
 }
 
-.busqueda-productos:focus{
-
-    border-color:var(--primary);
+.busqueda-productos:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 .2rem rgba(37,99,235,.15) !important;
 }
 
-.ordenar-productos{
-
-    padding:14px 18px;
-
-    border-radius:14px;
-
-    background:var(--bg-card);
-
-    color:var(--text);
-
-    border:1px solid var(--border);
-
-    cursor:pointer;
+.ordenar-productos {
+    min-width: 180px;
+    background-color: var(--bg-card);
+    color: var(--text);
+    border: 1px solid var(--border);
 }
 
-/* ========================= */
-/* GRID */
-/* ========================= */
-
-.grid-productos{
-    display:grid;
-    grid-template-columns:
-        repeat(auto-fill,minmax(280px,1fr));
-    gap:25px;
+.ordenar-productos:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 .2rem rgba(37,99,235,.15);
 }
 
-/* ========================= */
-/* TARJETAS */
-/* ========================= */
-
-.producto-card{
-
-    background:var(--bg-card);
-
-    border-radius:var(--radius);
-
-    overflow:hidden;
-
-    border:1px solid var(--border);
-
-    box-shadow:var(--shadow);
-
-    transition:var(--transition);
+// Muestra la cantidad de productos encontrados después del filtrado.
+.productos-contador {
+    margin: 25px 0 5px;
+    color: var(--text-secondary);
+    font-size: .9rem;
 }
 
-.producto-card:hover{
-
-    transform:translateY(-8px);
-
-    border-color:var(--primary);
+// Contenedor que organiza las tarjetas de productos.
+.grid-productos {
+    margin-top: 10px;
 }
 
-.producto-card a{
-
-    text-decoration:none;
-
-    color:inherit;
-
-    display:flex;
-
-    flex-direction:column;
-
-    height:100%;
+// Tarjetas individuales de productos.
+// Afecta tamaño, fondo, bordes, sombra y animación.
+.producto-card {
+    height: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
 }
 
-/* ========================= */
-/* IMAGEN */
-/* ========================= */
-
-.producto-imagen{
-
-    height:240px;
-
-    background:#0f172a;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    overflow:hidden;
+.producto-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
 }
 
-.producto-imagen img{
-    display:flex;
-    flex:1;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-
-    transition:.4s ease;
+.producto-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
 }
 
-.producto-card:hover img{
-
-    transform:scale(1.08);
+// Imagen de cada producto.
+// Controla el tamaño de la imagen y su efecto al pasar el mouse.
+.producto-imagen {
+    height: 240px;
+    background: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
-/* ========================= */
-/* INFO */
-/* ========================= */
-
-.producto-info{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:12px;
-
-    padding:20px;
-
-    flex:1;
+.producto-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .4s ease;
 }
 
-.producto-info h3{
-
-    color:var(--text);
-
-    font-size:1.25rem;
+.producto-card:hover
+.producto-imagen img {
+    transform: scale(1.08);
 }
 
-.producto-info p{
-
-    color:var(--text-secondary);
-
-    font-size:.95rem;
-
-    line-height:1.5;
-
-    flex:1;
+// Información que aparece debajo de la imagen.
+// Organiza nombre, descripción, precio y botón.
+.producto-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    flex: 1;
 }
 
-.precio{
-
-    color:var(--success);
-
-    font-size:1.4rem;
-
-    font-weight:700;
+.producto-info h3 {
+    color: var(--text);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
 }
 
-/* ========================= */
-/* BOTON */
-/* ========================= */
-
-.btn-producto{
-
-    margin-top:auto;
-
-    padding:12px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:var(--primary);
-
-    color:white;
-
-    cursor:pointer;
-
-    font-weight:600;
-
-    transition:var(--transition);
+.producto-info p {
+    color: var(--text-secondary);
+    font-size: .95rem;
+    line-height: 1.5;
+    flex: 1;
+    margin: 0;
 }
 
-.btn-producto:hover{
-
-    background:var(--primary-hover);
+.precio {
+    color: var(--success);
+    font-size: 1.4rem;
+    font-weight: 700;
 }
 
-/* ========================= */
-/* PAGINACION */
-/* ========================= */
-
-.paginacion{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:10px;
-
-    margin-top:10px;
+// Etiqueta utilizada para indicar que un producto está destacado.
+.producto-destacado {
+    width: fit-content;
+    padding: 5px 9px;
+    border-radius: 7px;
+    background: rgba(37,99,235,.15);
+    color: #60a5fa;
+    font-size: .75rem;
+    font-weight: 600;
 }
 
-.pagina-btn{
-
-    width:42px;
-
-    height:42px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:var(--bg-card);
-
-    color:var(--text);
-
-    cursor:pointer;
-
-    transition:var(--transition);
+// Botón que lleva al detalle del producto.
+.btn-producto {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    background: var(--primary);
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    transition: var(--transition);
 }
 
-.pagina-btn:hover{
-
-    background:var(--primary);
+.producto-card:hover
+.btn-producto {
+    background: var(--primary-hover);
 }
 
-.pagina-btn.active{
-
-    background:var(--primary);
-
-    color:white;
+// Mensaje mostrado cuando los filtros no encuentran productos.
+.sin-resultados {
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--text-secondary);
 }
 
-/* ========================= */
-/* SCROLL */
-/* ========================= */
-
-.sidebar::-webkit-scrollbar{
-
-    width:6px;
+.sin-resultados i {
+    font-size: 3rem;
+    color: var(--primary);
 }
 
-.sidebar::-webkit-scrollbar-thumb{
-
-    background:var(--primary);
-
-    border-radius:20px;
+.sin-resultados h3 {
+    margin-top: 15px;
+    color: var(--text);
 }
 
-/* ========================= */
-/* RESPONSIVE */
-/* ========================= */
+// Controles de paginación generados por JavaScript.
+// Afecta botones anteriores, siguientes y números de página.
+.paginacion-container {
+    margin-top: 35px;
+}
 
-@media(max-width:1100px){
+.paginacion-container
+.page-link {
+    width: 42px;
+    height: 42px;
+    margin: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px !important;
+    background: var(--bg-card);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
 
-    .productos-main{
+.paginacion-container
+.page-link:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
 
-        grid-template-columns:1fr;
+.paginacion-container
+.page-item.active
+.page-link {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+// Personaliza la barra de desplazamiento del sidebar.
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 20px;
+}
+
+// Adaptación para pantallas medianas.
+// El sidebar pasa de columna lateral a una sección superior.
+@media (max-width: 1100px) {
+    .productos-main {
+        display: block;
     }
 
-    .sidebar{
-
-        position:static;
-
-        height:auto;
-
-        border-right:none;
-
-        border-bottom:1px solid var(--border);
+    .sidebar {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
     }
 
-    .categorias{
-
-        flex-direction:row;
-
-        flex-wrap:wrap;
+    .categorias {
+        flex-direction: row !important;
+        flex-wrap: wrap;
     }
 
-    .categoria-btn{
-
-        width:auto;
+    .categoria-btn {
+        width: auto;
     }
 }
 
-@media(max-width:768px){
-
-    .contenedor-productos{
-
-        padding:20px;
+// Adaptación para celulares y pantallas pequeñas.
+// Reduce espacios, títulos e imágenes para aprovechar mejor la pantalla.
+@media (max-width: 768px) {
+    .contenedor-productos {
+        padding: 20px;
     }
 
-    .productos-header h1{
-
-        font-size:1.6rem;
+    .productos-header h1 {
+        font-size: 1.6rem;
     }
 
-    .grid-productos{
-
-        grid-template-columns:1fr;
-    }
-
-    .productos-toolbar{
-
-        flex-direction:column;
-    }
-
-    .busqueda-productos,
-    .ordenar-productos{
-
-        width:100%;
+    .producto-imagen {
+        height: 220px;
     }
 }

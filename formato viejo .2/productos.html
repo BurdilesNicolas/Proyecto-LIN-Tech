@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIN-Tech | Tecnología para todo Argentina</title>
+    <meta name="description"
+        content="Distribuidora tecnológica especializada en hardware, periféricos y componentes electrónicos.">
+    <link rel="stylesheet" href="CSS/default.css">
+    <link rel="stylesheet" href="CSS/productos.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <span class="logo-lin">LIN</span>
+                <span class="logo-tech">TECH</span>
+            </a>
+            <div class="buscador-container">
+                <input type="search" class="buscador-input" placeholder="Buscar productos...">
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li>
+                        <a href="index.html">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#">Productos</a>
+                    </li>
+                    <li>
+                        <a href="#">Nosotros</a>
+                    </li>
+                    <li>
+                        <a href="terminos.html">terminos y condiciones</a>
+                    </li>
+                    <li>
+                        <a href="#">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="icon-btn">
+                    🛒
+                </button>
+                <button class="login-btn">
+                    Iniciar sesión
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="productos-main">
+        <aside class="sidebar">
+            <h2>Categorías</h2>
+            <ul class="categorias">
+                <li>
+                    <button class="categoria-btn active" data-categoria="todos">
+                        Todos
+                    </button>
+                </li>
+                <li>
+                    <button class="categoria-btn" data-categoria="gpu">
+                        Tarjetas de Video
+                    </button>
+                </li>
+                <li>
+                    <button class="categoria-btn" data-categoria="procesador">
+                        Procesadores
+                    </button>
+                </li>
+                <li>
+                    <button class="categoria-btn" data-categoria="ram">
+                        Memorias RAM
+                    </button>
+                </li>
+            </ul>
+        </aside>
+        <section class="contenedor-productos">
+            <div class="productos-header">
+                <div>
+                    <h1>Tienda LIN-Tech</h1>
+                    <p>
+                        Descubrí nuestra selección de productos tecnológicos.
+                    </p>
+                </div>
+            </div>
+            <div class="productos-toolbar">
+                <input type="search" class="busqueda-productos" placeholder="Buscar productos...">
+                <select class="ordenar-productos">
+                    <option value="destacados"> Destacados </option>
+                    <option value="precio-menor"> Precio menor </option>
+                    <option value="precio-mayor"> Precio mayor </option>
+                    <option value="nombre"> Nombre </option>
+                </select>
+            </div>
+            <section class="grid-productos">
+                <article class="producto-card" data-categoria="procesador" data-precio="799999">
+                    <a href="producto.html?id=rtx5090">
+                        <div class="producto-imagen">
+                            <img src="IMG/productos/geforce-rtx-5090.jpg" alt="RTX 5090">
+                        </div>
+                        <div class="producto-info">
+                            <h3>RTX 5090</h3>
+                            <p>
+                                Potencia extrema para gaming y trabajo profesional.
+                            </p>
+                            <span class="precio">
+                                $2.999.999
+                            </span>
+                            <button class="btn-producto">
+                                Ver producto
+                            </button>
+                        </div>
+                    </a>
+                </article>
+                <article class="producto-card">
+                    <a href="producto.html?id=ryzen9">
+                        <div class="producto-imagen">
+                            <img src="IMG/productos/Ryzen-9-9950x.jpg" alt="Ryzen 9">
+                        </div>
+                        <div class="producto-info">
+                            <h3>AMD Ryzen 9-9950X</h3>
+                            <p>
+                                Procesador de alto rendimiento para tareas exigentes.
+                            </p>
+                            <span class="precio">
+                                $799.999
+                            </span>
+                            <button class="btn-producto">
+                                Ver producto
+                            </button>
+                        </div>
+                    </a>
+                </article>
+                <article class="producto-card">
+                    <a href="producto.html?id=ddr5">
+                        <div class="producto-imagen">
+                            <img src="IMG/productos/kingston.jpg" alt="DDR5">
+                        </div>
+                        <div class="producto-info">
+                            <h3>DDR5 32GB</h3>
+                            <p>
+                                Memoria rápida para gaming y productividad.
+                            </p>
+                            <span class="precio">
+                                $179.999
+                            </span>
+                            <button class="btn-producto">
+                                Ver producto
+                            </button>
+                        </div>
+                    </a>
+                </article>
+                <article class="producto-card">
+                    <a href="producto.html?id=ssd2tb">
+                        <div class="producto-imagen">
+                            <img src="IMG/productos/ssd2tb.webp" alt="SSD">
+                        </div>
+                        <div class="producto-info">
+                            <h3>SSD NVMe 2TB</h3>
+                            <p>
+                                Velocidad extrema para carga y almacenamiento.
+                            </p>
+                            <span class="precio">
+                                $249.999
+                            </span>
+                            <button class="btn-producto">
+                                Ver producto
+                            </button>
+                        </div>
+                    </a>
+                </article>
+                <article class="producto-card">
+                    <a href="producto.html?id=monitor4k">
+                        <div class="producto-imagen">
+                            <img src="IMG/productos/Odyssey-G7.jpg" alt="Monitor 4K">
+                        </div>
+                        <div class="producto-info">
+                            <h3>Monitor 4K</h3>
+                            <p>
+                                Imagen ultra nítida para trabajo y entretenimiento.
+                            </p>
+                            <span class="precio">
+                                $549.999
+                            </span>
+                            <button class="btn-producto">
+                                Ver producto
+                            </button>
+                        </div>
+                    </a>
+                </article>
+                <article class="producto-card">
+                    <a href="producto.html?id=logitechgpro">
+                        <div class="producto-imagen">
+                            <img src="IMG/productos/LogitechGproX.jpg" alt="Logitech G Pro">
+                        </div>
+                        <div class="producto-info">
+                            <h3>Logitech G Pro X</h3>
+                            <p>
+                                Precisión y rendimiento para esports.
+                            </p>
+                            <span class="precio">
+                                $129.999
+                            </span>
+                            <button class="btn-producto">
+                                Ver producto
+                            </button>
+                        </div>
+                    </a>
+                </article>
+            </section>
+            <div class="paginacion">
+                <button class="pagina-btn"> ← </button>
+                <button class="pagina-btn active"> 1 </button>
+                <button class="pagina-btn"> 2 </button>
+                <button class="pagina-btn"> 3 </button>
+                <button class="pagina-btn"> → </button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Institucional</h4>
+                <a href="#">Inicio</a>
+                <a href="#">Nosotros</a>
+                <a href="#">Contacto</a>
+                <a href="#">Términos y condiciones</a>
+            </div>
+            <div class="footer-column">
+                <h4>Productos</h4>
+                <a href="#">Componentes</a>
+                <a href="#">Periféricos</a>
+                <a href="#">Notebooks</a>
+                <a href="#">Monitores</a>
+            </div>
+            <div class="footer-column">
+                <h4>Soporte</h4>
+                <a href="#">Centro de ayuda</a>
+                <a href="#">Garantías</a>
+                <a href="#">Seguimiento</a>
+            </div>
+            <div class="footer-column">
+                <h4>Redes</h4>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">YouTube</a>
+                <a href="#">TikTok</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                © 2026 LIN-Tech - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script src="JS/header.js"></script>
+    <script src="JS/ProductosPageMove.js"></script>
+    <script src="JS/ProductosCreatePage.js"></script>
+    <script src="JS/ProductosShowPage.js"></script>
+    <script src="JS/ProductosOrdenar.js"></script>
+
+</body>
+
+</html>

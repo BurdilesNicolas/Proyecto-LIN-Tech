@@ -1,0 +1,616 @@
+/* VARIABLES: colores, sombras y transiciones reutilizadas en la página. */
+:root{
+    --primary: #00aaff;
+    --primary-hover: #008dcc;
+    --bg-dark: #080d18;
+    --bg-section: #0b1120;
+    --card: #111827;
+    --text-primary: #ffffff;
+    --text-secondary: #9ca3af;
+    --border: rgba(255, 255, 255, .08);
+    --shadow: 0 20px 50px rgba(0, 0, 0, .35);
+    --transition: all .3s ease;
+}
+
+/* HERO: define el tamaño de la sección principal con video. */
+.hero-video{
+    height: calc(100vh - 90px);
+    min-height: 600px;
+    background: #000;
+}
+
+/* VIDEO: hace que el video cubra todo el área disponible. */
+.video-banner{
+    object-fit: cover;
+    object-position: center;
+}
+
+/* OSCURECIMIENTO: mejora la lectura del texto sobre el video. */
+.hero-overlay{
+    background: linear-gradient(90deg, rgba(0, 0, 0, .75), rgba(0, 0, 0, .35), rgba(0, 0, 0, .75)), linear-gradient(180deg, rgba(0, 0, 0, .25), rgba(0, 0, 0, .65));
+    z-index: 1;
+}
+
+/* CONTENIDO HERO: mantiene el texto por encima del video y overlay. */
+.hero-content{
+    z-index: 2;
+}
+
+/* TEXTO HERO: limita el ancho del contenido central. */
+.hero-text{
+    width: 100%;
+    max-width: 950px;
+}
+
+/* BADGE: resalta la categoría de tecnología del banner. */
+.hero-badge{
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid rgba(0, 170, 255, .35);
+    border-radius: 50px;
+    background: rgba(0, 170, 255, .08);
+    color: #7dd3fc;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    backdrop-filter: blur(8px);
+}
+
+.hero-text h1{
+    color: white;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    text-shadow: 0 5px 25px rgba(0, 0, 0, .6);
+}
+
+.hero-text p{
+    max-width: 650px;
+    margin: 25px auto 35px;
+    color: #d1d5db;
+    font-size: 1.2rem;
+}
+
+#hero-btn{
+    padding: 13px 28px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--primary);
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 8px 25px rgba(0, 170, 255, .25);
+    transition: var(--transition);
+}
+
+.hero-btn:hover{
+    background: var(--primary-hover);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 170, 255, .35);
+}
+
+/* PRODUCTOS: define el fondo y color de la sección del catálogo. */
+.productos{
+    position: relative;
+    background: radial-gradient(circle at 50% 0%, rgba(0, 170, 255, .07), transparent 40%), linear-gradient(180deg, #0b1120, #080d18);
+    color: white;
+}
+
+/* TÍTULO DE SECCIÓN: separa el encabezado del catálogo de las tarjetas. */
+.section-header{
+    margin-bottom: 60px;
+}
+
+.section-tag{
+    display: inline-block;
+    margin-bottom: 12px;
+    color: var(--primary);
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.section-header h2{
+    margin-bottom: 12px;
+    color: white;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.section-header p{
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+/* CARRUSEL: agrega espacio lateral y espacio para los indicadores. */
+#productosCarousel{
+    padding: 0 70px 75px;
+}
+
+/* TARJETAS: define el tamaño, borde, fondo y sombra de cada producto. */
+.producto-card{
+    position: relative;
+    height: 470px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--card);
+    box-shadow: var(--shadow);
+    transition: transform .4s ease, box-shadow .4s ease, border-color .4s ease;
+}
+
+.producto-card:hover{
+    transform: translateY(-10px);
+    border-color: rgba(0, 170, 255, .35);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, .5);
+}
+
+/* IMAGEN: ocupa la tarjeta y oculta cualquier parte que sobresalga. */
+.producto-image{
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.producto-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s cubic-bezier(.22, .61, .36, 1);
+}
+
+.producto-card:hover img{
+    transform: scale(1.08);
+}
+
+/* OVERLAY: oscurece la imagen para mejorar la lectura de la información. */
+.producto-overlay{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 20%, rgba(0, 0, 0, .15) 40%, rgba(0, 0, 0, .95) 100%);
+    transition: background .4s ease;
+}
+
+.producto-card:hover .producto-overlay{
+    background: linear-gradient(180deg, rgba(0, 0, 0, .05), rgba(0, 0, 0, .96));
+}
+
+/* BADGE PRODUCTO: marca los productos destacados. */
+.producto-badge{
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    padding: 6px 11px;
+    border-radius: 6px;
+    background: var(--primary);
+    color: white;
+    font-size: .65rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+}
+
+/* INFORMACIÓN: posiciona nombre, descripción, precio y botón. */
+.producto-info{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 28px;
+    z-index: 2;
+    transform: translateY(10px);
+    transition: transform .4s ease;
+}
+
+.producto-card:hover .producto-info{
+    transform: translateY(0);
+}
+
+.producto-info h3{
+    margin-bottom: 8px;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 750;
+}
+
+.producto-info p{
+    min-height: 45px;
+    margin-bottom: 15px;
+    color: #d1d5db;
+    font-size: .9rem;
+    line-height: 1.5;
+}
+
+/* PRECIO Y BOTÓN: distribuye ambos elementos en la parte inferior. */
+.producto-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.precio{
+    color: #4ade80;
+    font-size: 1.15rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.producto-btn{
+    padding: 9px 15px;
+    border: 1px solid rgba(255, 255, 255, .15);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .08);
+    color: white;
+    font-size: .85rem;
+    font-weight: 600;
+    backdrop-filter: blur(8px);
+    transition: var(--transition);
+}
+
+.producto-btn:hover{
+    border-color: var(--primary);
+    background: var(--primary);
+    color: white;
+    transform: translateX(3px);
+}
+
+/* CONTROLES CARRUSEL: define la apariencia de las flechas laterales. */
+.carousel-btn{
+    top: 50%;
+    width: 48px;
+    height: 48px;
+    margin-top: -24px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .08);
+    opacity: 1;
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+}
+
+.carousel-btn:hover{
+    background: var(--primary);
+    transform: scale(1.08);
+}
+
+.carousel-control-prev{
+    left: 0;
+}
+
+.carousel-control-next{
+    right: 0;
+}
+
+/* INDICADORES: controla la posición de los puntos del carrusel. */
+#productosCarousel .carousel-indicators{
+    bottom: 0;
+    margin-bottom: 0;
+}
+
+#productosCarousel .carousel-indicators button{
+    width: 9px;
+    height: 9px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 50%;
+    background-color: #64748b;
+    opacity: 1;
+    transition: var(--transition);
+}
+
+#productosCarousel .carousel-indicators button.active{
+    width: 25px;
+    border-radius: 10px;
+    background-color: var(--primary);
+}
+
+#productosCarousel .carousel-item{
+    transition: transform .7s ease-in-out;
+}
+
+/* RESPONSIVE TABLET: reduce alturas y espacios del catálogo. */
+@media (max-width: 991px){
+    .hero-video{
+        height: calc(100vh - 75px);
+        min-height: 550px;
+    }
+    .producto-card{
+        height: 430px;
+    }
+    #productosCarousel{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+/* RESPONSIVE MÓVIL: adapta hero, tarjetas y controles. */
+@media (max-width: 767px){
+    .hero-video{
+        height: 70vh;
+        min-height: 500px;
+    }
+    .hero-text h1{
+        font-size: 2.5rem;
+        letter-spacing: -1px;
+    }
+    .hero-text p{
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+    .hero-badge{
+        font-size: .65rem;
+        letter-spacing: 1px;
+    }
+    .section-header{
+        margin-bottom: 40px;
+    }
+    #productosCarousel{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .producto-card{
+        height: 440px;
+    }
+    .carousel-btn{
+        width: 40px;
+        height: 40px;
+    }
+    .carousel-control-prev{
+        left: -5px;
+    }
+    .carousel-control-next{
+        right: -5px;
+    }
+}
+
+/* RESPONSIVE MÓVIL PEQUEÑO: ajusta tamaños y distribución final. */
+@media (max-width: 575px){
+    .hero-video{
+        min-height: 520px;
+    }
+    .hero-text h1{
+        font-size: 2.15rem;
+    }
+    #hero-btn{
+        width: 100%;
+        max-width: 250px;
+    }
+    #productosCarousel{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .producto-card{
+        height: 430px;
+    }
+    .producto-info{
+        padding: 22px;
+    }
+    .producto-bottom{
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .producto-btn{
+        width: 100%;
+        text-align: center;
+    }
+    .carousel-control-prev{
+        left: -10px;
+    }
+    .carousel-control-next{
+        right: -10px;
+    }
+}
+
+/* ACCESIBILIDAD: reduce animaciones si el usuario lo solicita. */
+@media (prefers-reduced-motion: reduce){
+    .producto-card,
+    .producto-image img,
+    .producto-info,
+    .hero-btn,
+    .producto-btn,
+    .carousel-btn{
+        transition: none;
+    }
+}
+
+/* FOOTER: mantiene el pie de página integrado con el diseño oscuro. */
+#footer{
+    position: relative !important;
+    display: block;
+    width: 100%;
+    background-color:#111 !important;
+    color: #ffffff !important;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    z-index: 1;
+}
+
+.footer-main{
+    padding-top: 70px;
+    padding-bottom: 60px;
+}
+
+.footer-brand{
+    max-width: 330px;
+}
+
+.footer-logo{
+    display: inline-block;
+    margin-bottom: 18px;
+    color: white;
+    font-size: 28px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: -.5px;
+    transition: color .25s ease;
+}
+
+.footer-logo span{
+    color: white;
+}
+
+.footer-logo{
+    color: var(--primary);
+}
+
+.footer-logo:hover{
+    color: #33bbff;
+}
+
+.footer-brand p{
+    margin-bottom: 25px;
+    color: #8b95a7;
+    font-size: .9rem;
+    line-height: 1.7;
+}
+
+.footer-social{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-social a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 9px;
+    background: rgba(255, 255, 255, .04);
+    color: #cbd5e1;
+    font-size: 17px;
+    text-decoration: none;
+    transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
+}
+
+.footer-social a:hover{
+    border-color: var(--primary);
+    background: var(--primary);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.footer-column{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-column h4{
+    margin-bottom: 10px;
+    color: white;
+    font-size: .9rem;
+    font-weight: 700;
+    letter-spacing: .3px;
+}
+
+.footer-column h4::after{
+    content: "";
+    display: block;
+    width: 25px;
+    height: 2px;
+    margin-top: 9px;
+    border-radius: 5px;
+    background: var(--primary);
+}
+
+.footer-column a{
+    width: fit-content;
+    color: #8b95a7;
+    font-size: .85rem;
+    text-decoration: none;
+    transition: color .2s ease, transform .2s ease;
+}
+
+.footer-column a:hover{
+    color: var(--primary);
+    transform: translateX(3px);
+}
+
+.footer-divider{
+    height: 1px;
+    background: rgba(255, 255, 255, .07);
+}
+
+.footer-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    min-height: 75px;
+}
+
+.footer-bottom p{
+    margin: 0;
+    color: #64748b;
+    font-size: .8rem;
+}
+
+.footer-bottom strong{
+    color: #94a3b8;
+}
+
+.footer-bottom-links{
+    display: flex;
+    gap: 20px;
+}
+
+.footer-bottom-links a{
+    color: #64748b;
+    font-size: .8rem;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.footer-bottom-links a:hover{
+    color: var(--primary);
+}
+
+@media (max-width: 991px){
+    .footer-main{
+        padding-top: 55px;
+        padding-bottom: 45px;
+    }
+    .footer-brand{
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 767px){
+    .footer-main{
+        text-align: left;
+    }
+    .footer-bottom{
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px 0;
+        gap: 10px;
+    }
+    .footer-bottom-links{
+        gap: 15px;
+    }
+}
+
+@media (max-width: 575px){
+    .footer-main{
+        padding-top: 45px;
+        padding-bottom: 35px;
+    }
+    .footer-brand{
+        max-width: 100%;
+    }
+    .footer-logo{
+        font-size: 25px;
+    }
+    .footer-column a{
+        font-size: .82rem;
+    }
+    .footer-social a{
+        width: 38px;
+        height: 38px;
+    }
+}
