@@ -1,5 +1,3 @@
-// Variables generales utilizadas en toda la página.
-// Afectan colores, bordes, sombras, tamaños y transiciones.
 :root {
     --bg: #0b1120;
     --bg-secondary: #111827;
@@ -15,8 +13,7 @@
     --transition: .3s ease;
 }
 
-// Contenedor principal de la tienda.
-// Define la estructura general con un sidebar y el contenido.
+
 .productos-main {
     min-height: 100vh;
     margin-top: 80px;
@@ -24,9 +21,6 @@
     display: grid;
     grid-template-columns: 260px 1fr;
 }
-
-// Barra lateral de categorías.
-// Permanece visible al desplazarse y ocupa la primera columna.
 .sidebar {
     position: sticky;
     top: 80px;
@@ -44,8 +38,7 @@
     margin-bottom: 25px;
 }
 
-// Botones utilizados para filtrar los productos por categoría.
-// Afectan la apariencia normal, el hover y la categoría activa.
+
 .categoria-btn {
     width: 100%;
     padding: 12px 15px;
@@ -68,14 +61,13 @@
     color: white;
 }
 
-// Contenedor del contenido principal.
-// Controla el espacio interno donde se muestran los productos.
+
 .contenedor-productos {
     min-width: 0;
     padding: 35px;
 }
 
-// Título y descripción de la tienda.
+
 .productos-header h1 {
     color: var(--text);
     font-size: 2rem;
@@ -87,8 +79,7 @@
     margin-top: 6px;
 }
 
-// Barra de búsqueda y ordenamiento.
-// Afecta los controles utilizados para buscar y ordenar productos.
+
 .productos-toolbar {
     margin-top: 30px;
 }
@@ -126,20 +117,18 @@
     box-shadow: 0 0 0 .2rem rgba(37,99,235,.15);
 }
 
-// Muestra la cantidad de productos encontrados después del filtrado.
+
 .productos-contador {
     margin: 25px 0 5px;
     color: var(--text-secondary);
     font-size: .9rem;
 }
 
-// Contenedor que organiza las tarjetas de productos.
+
 .grid-productos {
     margin-top: 10px;
 }
 
-// Tarjetas individuales de productos.
-// Afecta tamaño, fondo, bordes, sombra y animación.
 .producto-card {
     height: 100%;
     background: var(--bg-card);
@@ -163,8 +152,7 @@
     color: inherit;
 }
 
-// Imagen de cada producto.
-// Controla el tamaño de la imagen y su efecto al pasar el mouse.
+
 .producto-imagen {
     height: 240px;
     background: #0f172a;
@@ -186,8 +174,7 @@
     transform: scale(1.08);
 }
 
-// Información que aparece debajo de la imagen.
-// Organiza nombre, descripción, precio y botón.
+
 .producto-info {
     display: flex;
     flex-direction: column;
@@ -217,7 +204,7 @@
     font-weight: 700;
 }
 
-// Etiqueta utilizada para indicar que un producto está destacado.
+
 .producto-destacado {
     width: fit-content;
     padding: 5px 9px;
@@ -228,7 +215,6 @@
     font-weight: 600;
 }
 
-// Botón que lleva al detalle del producto.
 .btn-producto {
     display: block;
     width: 100%;
@@ -246,7 +232,6 @@
     background: var(--primary-hover);
 }
 
-// Mensaje mostrado cuando los filtros no encuentran productos.
 .sin-resultados {
     text-align: center;
     padding: 80px 20px;
@@ -263,8 +248,6 @@
     color: var(--text);
 }
 
-// Controles de paginación generados por JavaScript.
-// Afecta botones anteriores, siguientes y números de página.
 .paginacion-container {
     margin-top: 35px;
 }
@@ -298,7 +281,7 @@
     color: white;
 }
 
-// Personaliza la barra de desplazamiento del sidebar.
+
 .sidebar::-webkit-scrollbar {
     width: 6px;
 }
@@ -308,8 +291,6 @@
     border-radius: 20px;
 }
 
-// Adaptación para pantallas medianas.
-// El sidebar pasa de columna lateral a una sección superior.
 @media (max-width: 1100px) {
     .productos-main {
         display: block;
@@ -332,8 +313,7 @@
     }
 }
 
-// Adaptación para celulares y pantallas pequeñas.
-// Reduce espacios, títulos e imágenes para aprovechar mejor la pantalla.
+
 @media (max-width: 768px) {
     .contenedor-productos {
         padding: 20px;

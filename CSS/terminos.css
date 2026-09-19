@@ -1,0 +1,157 @@
+.terminos-main {
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            180deg,
+            #071428 0%,
+            #0b1120 45%,
+            #0e1e38 100%
+        );
+}
+
+/* Hero superior con imagen de fondo */
+.hero-terminos {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    background-image: url('../IMG/terminos/terminos.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero-content {
+    max-width: 850px;
+    padding: 45px;
+    background: rgba(7, 17, 36, .65);
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
+}
+
+.hero-content h1 {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+}
+
+.hero-content p {
+    margin: 0;
+    color: #c1c5ca;
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+/* Grilla de tarjetas de términos */
+.terminos-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding-top: 70px;
+    padding-bottom: 90px;
+}
+
+/* Tarjeta individual */
+.termino-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 310px;
+    padding: 30px;
+    background: rgba(255, 255, 255, .045);
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .18);
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.termino-card:hover {
+    transform: translateY(-7px);
+    border-color: #2563eb;
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, .3),
+        0 0 25px rgba(37, 99, 235, .08);
+}
+
+/* Icono de cada tarjeta */
+.termino-icono {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgba(37, 99, 235, .15);
+    border: 1px solid rgba(37, 99, 235, .25);
+    color: #3b82f6;
+    font-size: 1.4rem;
+    transition: .3s ease;
+}
+
+.termino-card:hover .termino-icono {
+    background: #2563eb;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Texto de cada tarjeta */
+.termino-contenido h2 {
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.termino-contenido p {
+    margin: 0;
+    color: #c1c5ca;
+    line-height: 1.75;
+    font-size: .95rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .terminos-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-terminos {
+        min-height: 420px;
+        padding: 30px 15px;
+    }
+
+    .hero-content {
+        padding: 30px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .terminos-container {
+        grid-template-columns: 1fr;
+        padding-top: 40px;
+        padding-bottom: 60px;
+    }
+
+    .termino-card {
+        min-height: auto;
+    }
+}
