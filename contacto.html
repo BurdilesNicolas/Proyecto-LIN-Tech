@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIN-Tech | Tecnología para todo Argentina</title>
+    <meta name="description" content="Distribuidora tecnológica especializada en hardware, periféricos y componentes electrónicos.">
+    <link rel="stylesheet" href="CSS/default.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/contacto.css">
+    <script src="JavaScript/contacto.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <!-- El header se carga dinámicamente desde header.html. -->
+    <div id="header-container"></div>
+    
+    <!-- Notificación mostrada cuando el formulario se envía correctamente. -->
+    <div id="notificacion" class="notificacion">
+        <i class="bi bi-check-circle-fill"></i>
+        <span>¡Solicitud enviada correctamente!</span>
+    </div>
+
+    <main class="terminos-main">
+        <!-- Introducción y descripción del contacto comercial. -->
+        <section class="introduction container">
+            <span class="section-label">
+                TRABAJEMOS JUNTOS
+            </span>
+            <h1>
+                ¿Querés vender en LIN-Tech?
+            </h1>
+            <p class="introduction-text">
+                LIN-Tech es una empresa dedicada a ofrecer soluciones
+                tecnológicas para la industria. Contamos con tarjetas de
+                video, procesadores, memorias RAM, almacenamiento,
+                monitores y periféricos para acompañar las necesidades
+                de nuestros clientes.
+            </p>
+            <p class="introduction-description">
+                Completá este formulario para ponerte en contacto con
+                nuestro equipo de ventas y conocer más sobre cómo podemos
+                ayudarte a llevar tu negocio al siguiente nivel.
+            </p>
+        </section>
+
+        <!-- Contiene la información lateral y el formulario de contacto. -->
+        <section class="contact container">
+            <div class="row g-4 align-items-stretch">
+                <!-- Información y beneficios para posibles socios comerciales. -->
+                <div class="col-12 col-lg-5">
+                    <aside class="contact-aside h-100">
+                        <div class="aside-head">
+                            <div class="aside-icon">
+                                <i class="bi bi-buildings"></i>
+                            </div>
+                            <h2>
+                                Sumate a nuestra red de equipos
+                            </h2>
+                            <p>
+                                En LIN-Tech conectamos tecnología con
+                                oportunidades de negocio. Buscamos socios
+                                comprometidos que quieran crecer junto
+                                a nosotros.
+                            </p>
+                        </div>
+
+                        <div class="aside-content">
+                            <!-- Cada bloque muestra un beneficio de trabajar con LIN-Tech. -->
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="bi bi-shield-check"></i>
+                                </div>
+                                <div class="item-text">
+                                    <h3>
+                                        Confianza y transparencia
+                                    </h3>
+                                    <p>
+                                        Trabajamos con procesos claros y
+                                        comunicación transparente para
+                                        construir relaciones comerciales
+                                        duraderas.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="bi bi-graph-up-arrow"></i>
+                                </div>
+                                <div class="item-text">
+                                    <h3>
+                                        Crecimiento
+                                    </h3>
+                                    <p>
+                                        Te ayudamos a ampliar tu catálogo
+                                        y encontrar nuevas oportunidades
+                                        para hacer crecer tu negocio.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="bi bi-headset"></i>
+                                </div>
+                                <div class="item-text">
+                                    <h3>
+                                        Disponibilidad
+                                    </h3>
+                                    <p>
+                                        Nuestro equipo está disponible
+                                        para responder consultas y
+                                        acompañarte durante el proceso.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="bi bi-stars"></i>
+                                </div>
+                                <div class="item-text">
+                                    <h3>
+                                        Beneficios exclusivos
+                                    </h3>
+                                    <p>
+                                        Accedé a beneficios y oportunidades
+                                        pensadas especialmente para
+                                        nuestros socios comerciales.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+
+                <!-- Formulario utilizado para enviar la solicitud de contacto. -->
+                <div class="col-12 col-lg-7">
+                    <div class="form-container h-100">
+                        <form action="#" method="post" class="contact-form">
+                            <!-- Datos personales del usuario. -->
+                            <div class="form-section">
+                                <div class="form-section-title">
+                                    <i class="bi bi-person"></i>
+                                    <div>
+                                        <h2>
+                                            Información personal
+                                        </h2>
+                                        <p>
+                                            Contanos un poco sobre vos.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3">
+                                    <div class="col-12 col-md-6">
+                                        <label for="nombre" class="form-label">
+                                            Nombre
+                                        </label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="nombre"
+                                            name="nombre"
+                                            placeholder="Tu nombre"
+                                            required>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                        <label for="apellido" class="form-label">
+                                            Apellido
+                                        </label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="apellido"
+                                            name="apellido"
+                                            placeholder="Tu apellido"
+                                            required>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                        <label for="email" class="form-label">
+                                            Email
+                                        </label>
+                                        <input
+                                            type="email"
+                                            class="form-control"
+                                            id="email"
+                                            name="email"
+                                            placeholder="correo@ejemplo.com"
+                                            required>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                        <label for="telefono" class="form-label">
+                                            Número de teléfono
+                                        </label>
+                                        <input
+                                            type="tel"
+                                            class="form-control"
+                                            id="telefono"
+                                            name="telefono"
+                                            placeholder="+54 9..."
+                                            required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Datos de la empresa y selección de si representa una empresa. -->
+                            <div class="form-section">
+                                <div class="form-section-title">
+                                    <i class="bi bi-building"></i>
+                                    <div>
+                                        <h2>
+                                            Información de la empresa
+                                        </h2>
+                                        <p>
+                                            Datos del negocio que representás.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label">
+                                        ¿Tenés o representás una empresa?
+                                    </label>
+
+                                    <div class="form-check-group">
+                                        <div class="form-check">
+                                            <input
+                                                class="form-check-input"
+                                                type="radio"
+                                                name="empresa"
+                                                id="empresa-si"
+                                                value="si"
+                                                required>
+                                            <label
+                                                class="form-check-label"
+                                                for="empresa-si">
+                                                Sí
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check">
+                                            <input
+                                                class="form-check-input"
+                                                type="radio"
+                                                name="empresa"
+                                                id="empresa-no"
+                                                value="no">
+                                            <label
+                                                class="form-check-label"
+                                                for="empresa-no">
+                                                No
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Estos campos se habilitan o deshabilitan desde contacto.js. -->
+                                <div id="datos-empresa">
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <label for="nombreEmpresa" class="form-label">
+                                                Nombre de la empresa
+                                            </label>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="nombreEmpresa"
+                                                name="nombreEmpresa"
+                                                placeholder="Nombre de tu empresa">
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label for="direccion" class="form-label">
+                                                Dirección
+                                            </label>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="direccion"
+                                                name="direccion"
+                                                placeholder="Dirección de la empresa">
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label for="sitioWeb" class="form-label">
+                                                Sitio web <span>(opcional)</span>
+                                            </label>
+                                            <input
+                                                type="url"
+                                                class="form-control"
+                                                id="sitioWeb"
+                                                name="sitioWeb"
+                                                placeholder="https://tusitio.com">
+                                        </div>
+
+                                        <div class="col-12 col-md-4">
+                                            <label for="ciudad" class="form-label">
+                                                Ciudad
+                                            </label>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="ciudad"
+                                                name="ciudad"
+                                                placeholder="Ciudad">
+                                        </div>
+
+                                        <div class="col-12 col-md-8">
+                                            <label for="provincia" class="form-label">
+                                                Provincia
+                                            </label>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="provincia"
+                                                name="provincia"
+                                                placeholder="Provincia">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Productos que comercializa la empresa. -->
+                            <div class="form-section">
+                                <div class="form-section-title">
+                                    <i class="bi bi-box-seam"></i>
+                                    <div>
+                                        <h2>
+                                            Productos
+                                        </h2>
+                                        <p>
+                                            ¿Qué tipos de productos vendés?
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="productos-check">
+                                    <div class="form-check">
+                                        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            id="accesorios"
+                                            name="productos[]"
+                                            value="accesorios">
+                                        <label
+                                            class="form-check-label"
+                                            for="accesorios">
+                                            Accesorios de escritorio
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            id="perifericos"
+                                            name="productos[]"
+                                            value="perifericos">
+                                        <label
+                                            class="form-check-label"
+                                            for="perifericos">
+                                            Periféricos
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            id="notebooks"
+                                            name="productos[]"
+                                            value="notebooks">
+                                        <label
+                                            class="form-check-label"
+                                            for="notebooks">
+                                            Notebooks
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            id="monitores"
+                                            name="productos[]"
+                                            value="monitores">
+                                        <label
+                                            class="form-check-label"
+                                            for="monitores">
+                                            Monitores
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            id="memorias"
+                                            name="productos[]"
+                                            value="memorias">
+                                        <label
+                                            class="form-check-label"
+                                            for="memorias">
+                                            Memorias
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            id="procesadores"
+                                            name="productos[]"
+                                            value="procesadores">
+                                        <label
+                                            class="form-check-label"
+                                            for="procesadores">
+                                            Procesadores
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            id="redes"
+                                            name="productos[]"
+                                            value="redes">
+                                        <label
+                                            class="form-check-label"
+                                            for="redes">
+                                            Redes
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            id="otros"
+                                            name="productos[]"
+                                            value="otros">
+                                        <label
+                                            class="form-check-label"
+                                            for="otros">
+                                            Otros
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mensaje que escribe el usuario antes de enviar la solicitud. -->
+                            <div class="form-section">
+                                <div class="form-section-title">
+                                    <i class="bi bi-chat-left-text"></i>
+                                    <div>
+                                        <h2>
+                                            Mensaje
+                                        </h2>
+                                        <p>
+                                            Contanos qué necesitás.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <textarea
+                                    id="mensaje"
+                                    name="mensaje"
+                                    class="form-control mensaje-input"
+                                    rows="5"
+                                    placeholder="Escribí tu mensaje aquí..."
+                                    required></textarea>
+                            </div>
+
+                            <!-- El usuario debe aceptar los términos antes de enviar. -->
+                            <div class="terminos-check form-check">
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="terminos"
+                                    name="terminos"
+                                    required>
+
+                                <label
+                                    class="form-check-label"
+                                    for="terminos">
+                                    Acepto los
+                                    <a href="terminos.html">
+                                        términos y condiciones
+                                    </a>
+                                </label>
+                            </div>
+
+                            <!-- Botón que dispara el envío del formulario. -->
+                            <button
+                                type="submit"
+                                class="btn-enviar">
+                                <i class="bi bi-send"></i>
+                                Enviar solicitud
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

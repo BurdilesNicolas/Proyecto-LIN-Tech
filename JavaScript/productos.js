@@ -167,12 +167,10 @@ function cambiarPagina(pagina) {
     if (pagina < 1 || pagina > cantidadPaginas) {
         return;
     }
- 
     paginaActual = pagina;
     mostrarProductos();
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
- 
 // Al hacer clic en una categoría, la marca como activa y vuelve a filtrar
 document.querySelectorAll(".categoria-btn").forEach(boton => {
     boton.addEventListener("click", () => {
@@ -184,9 +182,7 @@ document.querySelectorAll(".categoria-btn").forEach(boton => {
         aplicarFiltros();
     });
 });
- 
 // El buscador y el select de orden también disparan el filtrado
 busquedaProductos.addEventListener("input", aplicarFiltros);
 ordenarProductos.addEventListener("change", aplicarFiltros);
- 
 cargarProductos();
