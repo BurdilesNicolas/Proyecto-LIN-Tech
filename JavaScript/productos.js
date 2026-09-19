@@ -34,12 +34,10 @@ async function cargarProductos() {
         `;
     }
 }
- 
 // Convierte el texto plano (separado por | y saltos de línea) en un array de objetos producto
 function convertirProductos(texto) {
     const lineas = texto.trim().split("\n");
     lineas.shift(); // la primera línea es el encabezado con los nombres de las columnas
- 
     productos = lineas.map(linea => {
         const datos = linea.split("|");
         return {
@@ -53,32 +51,26 @@ function convertirProductos(texto) {
         };
     });
 }
- 
 // Filtra los productos por categoría y texto de búsqueda, y actualiza la vista
 function aplicarFiltros() {
     const textoBusqueda = busquedaProductos.value.toLowerCase().trim();
- 
+
     productosFiltrados = productos.filter(producto => {
         const coincideCategoria =
             categoriaActual === "todos" ||
             producto.categoria === categoriaActual;
- 
         const coincideBusqueda =
             producto.nombre.toLowerCase().includes(textoBusqueda) ||
             producto.descripcion.toLowerCase().includes(textoBusqueda);
- 
         return coincideCategoria && coincideBusqueda;
     });
- 
     ordenarProductosLista();
     paginaActual = 1;
     mostrarProductos();
 }
- 
 // Ordena productosFiltrados según la opción elegida en el select
 function ordenarProductosLista() {
     const orden = ordenarProductos.value;
- 
     if (orden === "precio-menor") {
         productosFiltrados.sort((a, b) => a.precio - b.precio);
     } else if (orden === "precio-mayor") {
@@ -89,36 +81,29 @@ function ordenarProductosLista() {
         productosFiltrados.sort((a, b) => Number(b.destacado) - Number(a.destacado));
     }
 }
- 
 // Pinta en el grid la página actual de productos y regenera la paginación
 function mostrarProductos() {
     gridProductos.innerHTML = "";
- 
     if (productosFiltrados.length === 0) {
         sinResultados.classList.remove("d-none");
         cantidadProductos.textContent = "0 productos";
         paginacion.innerHTML = "";
         return;
     }
- 
     sinResultados.classList.add("d-none");
- 
     const inicio = (paginaActual - 1) * productosPorPagina;
     const fin = inicio + productosPorPagina;
     const productosPagina = productosFiltrados.slice(inicio, fin);
- 
     productosPagina.forEach(producto => {
         gridProductos.innerHTML += crearTarjeta(producto);
     });
- 
+
     cantidadProductos.textContent = `${productosFiltrados.length} productos`;
     crearPaginacion();
 }
- 
 // Devuelve el HTML de una tarjeta de producto
 function crearTarjeta(producto) {
     const precio = producto.precio.toLocaleString("es-AR");
- 
     return `
         <article class="col-12 col-sm-6 col-xl-4">
             <div class="producto-card h-100">
@@ -146,12 +131,10 @@ function crearTarjeta(producto) {
 // Genera los botones de paginación (anterior, números, siguiente)
 function crearPaginacion() {
     paginacion.innerHTML = "";
- 
     const cantidadPaginas = Math.ceil(productosFiltrados.length / productosPorPagina);
     if (cantidadPaginas <= 1) {
         return;
     }
- 
     paginacion.innerHTML += `
         <li class="page-item ${paginaActual === 1 ? "disabled" : ""}">
             <button class="page-link" onclick="cambiarPagina(${paginaActual - 1})">
@@ -159,7 +142,6 @@ function crearPaginacion() {
             </button>
         </li>
     `;
- 
     for (let i = 1; i <= cantidadPaginas; i++) {
         paginacion.innerHTML += `
             <li class="page-item ${i === paginaActual ? "active" : ""}">
