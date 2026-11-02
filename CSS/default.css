@@ -1,300 +1,447 @@
-/* RESET */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* BASE: define el fondo general de toda la página. */
+body{
+    background-color: #0b1120;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-/* VARIABLES */
-
-:root {
-    --celeste-fot: #4fc7f7;
-    /* Fondo */
-    --bg: #0b1120;
-    --bg-secondary: #111827;
-    /* Tarjetas */
-    --card: #1f2937;
-    /* Colores principales */
-    --primary: #2563eb;
-    --primary-hover: #3b82f6;
-    /* Textos */
-    --text: #f8fafc;
-    --text-secondary: #94a3b8;
-    /* Extras */
-    --success: #10b981;
-    --border: rgba(255, 255, 255, .08);
-    --shadow:0 10px 30px rgba(0, 0, 0, .25);
-    --transition:all .3s ease;
-}
-
-
-/* BODY */
-
-body {
-    font-family:
-        "Segoe UI",
-        Tahoma,
-        Geneva,
-        Verdana,
-        sans-serif;
-    background: linear-gradient(to bottom, var(--bg), var(--bg-secondary));
-    color: #111827;
-    min-height: 100vh;
-    overflow-x: hidden;
-
-}
-
-/* HEADER */
-
-.header {
+/* HEADER: controla la posición, tamaño y apariencia de la barra superior. */
+.header{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 90px;
-    z-index: 999;
-    transition: .2s ease;
-    background:rgba(11, 17, 32, .95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
+    background-color: #111;
+    z-index: 1000;
+    transition: height 0.35s ease, width 0.35s ease, left 0.35s ease, border-radius 0.35s ease, box-shadow 0.35s ease;
 }
 
-/* Header contraído */
-
-.header.shrink {
-    width: 70%;
-    left: 15%;
-    height: 65px;
-    border-radius: 0 0 18px 18px;
-    box-shadow: var(--shadow);
-    transition: all .3s ease;
-}
-
-/* CONTENEDOR HEADER */
-
-.header-container {
-    width: 90%;
+.header .navbar{
     height: 100%;
-    margin: auto;
+    padding: 0;
+}
+
+.header-container{
+    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 25px;
 }
 
-/* LOGO */
-
-.logo {
+/* LOGO: controla el tamaño y estilo del nombre de la marca. */
+.logo{
     text-decoration: none;
-    font-size: 1.8rem;
+    font-size: 28px;
     font-weight: 800;
-    display: flex;
+    white-space: nowrap;
+    transition: font-size 0.35s ease;
+}
+
+.logo-lin{
+    color: white;
+}
+
+.logo-tech{
+    color: #00aaff;
+}
+
+/* BUSCADOR: ocupa el espacio disponible entre el logo y la navegación. */
+.buscador-container{
+    flex: 1;
+    margin: 0 30px;
+}
+
+.buscador-input{
+    width: 100%;
+    height: 42px;
+    padding: 0 15px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #1c1c1c;
+    color: white;
+    outline: none;
+    transition: height 0.35s ease, opacity 0.25s ease;
+}
+
+.buscador-input::placeholder{
+    color: #999;
+}
+
+.buscador-input:focus{
+    border-color: #00aaff;
+}
+
+/* NAVEGACIÓN: controla la separación y apariencia de los enlaces. */
+.nav-list{
     gap: 5px;
 }
 
-.logo-lin {
-    color: white;
+.nav-list .nav-link{
+    color: #ddd !important;
+    font-size: 15px;
+    transition: color 0.2s ease, font-size 0.35s ease;
 }
 
-.logo-tech {
-    color: var(--primary);
+.nav-list .nav-link:hover{
+    color: #00aaff !important;
 }
 
-
-/* BUSCADOR */
-
-
-.buscador-container {
-    flex: 1;
-    max-width: 500px;
-    transition: .3s ease;
-}
-
-.buscador-input {
-    width: 100%;
-    padding: 12px 16px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    background: var(--text);
-    color: var(--bg-secondary);
-    outline: none;
-}
-
-.buscador-input::placeholder {
-    color:var(--bg-secondary);
-}
-
-/* Se oculta cuando baja */
-
-.header.shrink .buscador-container {
-    opacity: 0;
-    width: 0;
-    overflow: hidden;
-    display: none;
-}
-
-
-/* NAV */
-
-
-.nav {
-    display: flex;
-}
-
-.nav-list {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-}
-
-.nav-list a {
-    color:var(--text);
-    text-decoration: none;
-    font-weight: 500;
-    transition:var(--transition);
-}
-
-.nav-list a:hover {
-    color:var(--primary);
-}
-
-
-/* BOTONES HEADER */
-
-
-.header-actions {
+/* ACCIONES: organiza los botones del lado derecho del header. */
+.header-actions{
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-left: 20px;
 }
 
-.icon-btn {
-    width: 40px;
-    height: 40px;
+.icon-btn{
     border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    background:rgba(255, 255, 255, .05);
-    color:white;
-    transition:var(--transition);
-}
-
-.icon-btn:hover {
-    background:var(--primary);
-}
-
-.login-btn {
-    border: none;
-    cursor: pointer;
-    padding: 10px 18px;
-    border-radius: 12px;
-    font-weight: 600;
+    background: transparent;
     color: white;
-    background:var(--primary);
-    transition:var(--transition);
+    font-size: 22px;
+    padding: 8px 10px;
+    transition: transform 0.2s ease;
 }
 
-.login-btn:hover {
-    background:var(--primary-hover);
+.icon-btn:hover{
+    transform: scale(1.1);
 }
 
-
-/* MAIN */
-
-
-main {
-    margin-top: 80px;
+.login-btn{
+    border: none;
+    border-radius: 7px;
+    padding: 9px 16px;
+    background-color: #00aaff;
+    color: white;
+    font-weight: 600;
+    transition: background-color 0.2s ease, padding 0.35s ease, font-size 0.35s ease;
 }
 
-
-/* FOOTER */
-
-
-footer {
-    background:var(--bg);
-    color:white;
-    padding:70px 10% 30px;
-    margin-top:00px;
-    border-top:3px solid var(--primary);
+.login-btn:hover{
+    background-color: #008dcc;
 }
 
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 30px;
+/* SHRINK: reduce el tamaño del header cuando se hace scroll. */
+.header.shrink{
+    height: 65px;
+    width: 70%;
+    left: 15%;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
 }
 
-.footer-column {
-    display: flex;
-    flex-direction: column;
-    min-width: 180px;
+.header.shrink .logo{
+    font-size: 22px;
 }
 
-.footer-column h4 {
-    margin-bottom: 15px;
-    color:white;
+.header.shrink .buscador-input{
+    height: 34px;
 }
 
-.footer-column a {
-    color:var(--text-secondary);
-    text-decoration: none;
-    margin-bottom: 8px;
-    transition:var(--transition);
+.header.shrink .nav-link{
+    font-size: 14px;
 }
 
-.footer-column a:hover {
-    color:var(--primary);
+.header.shrink .login-btn{
+    padding: 7px 12px;
+    font-size: 14px;
 }
 
-.footer-bottom {
-    margin-top: 30px;
-    border-top:1px solid var(--border);
-    padding-top: 20px;
-    text-align: center;
-    color:var(--text-secondary);
+/* MENÚ MÓVIL: ajusta el botón de navegación en pantallas pequeñas. */
+.header .navbar-toggler{
+    border-color: #555;
 }
 
+.header .navbar-toggler:focus{
+    box-shadow: none;
+}
 
-/* RESPONSIVE */
+/* CONTENIDO: deja espacio superior para el header fijo. */
+main{
+    margin-top: 90px;
+}
 
+/* RESPONSIVE TABLET: adapta header y contenido a pantallas medianas. */
+@media (max-width: 991px){
+    .header{
+        height: 75px;
+    }
+    .header-container{
+        padding: 0 20px;
+    }
+    .header.shrink{
+        width: 100%;
+        left: 0;
+        height: 65px;
+        border-radius: 0;
+    }
+    .header .navbar-collapse{
+        background-color: #111;
+        padding: 15px 20px 20px;
+    }
+    .buscador-container{
+        margin: 10px 0 15px;
+    }
+    .nav-list{
+        gap: 0;
+    }
+    .nav-list .nav-link{
+        padding: 10px 0;
+    }
+    .header-actions{
+        margin: 15px 0 0;
+        justify-content: flex-start;
+    }
+    .header.shrink .logo{
+        font-size: 22px;
+    }
+    .header.shrink .buscador-input{
+        height: 42px;
+    }
+    .header.shrink .nav-link{
+        font-size: 15px;
+    }
+    .header.shrink .login-btn{
+        padding: 9px 16px;
+        font-size: 15px;
+    }
+    main{
+        margin-top: 75px;
+    }
+}
 
-@media (max-width: 1000px) {
-    .buscador-container {
+RESPONSIVE
+
+/* RESPONSIVE: oculta el buscador cuando el ancho ya no permite mantenerlo. */
+@media (max-width: 1000px){
+    .buscador-container{
         display: none;
     }
-    .nav-list {
+    .nav-list{
         gap: 10px;
     }
 }
 
-@media (max-width: 768px) {
-    .header {
+/* RESPONSIVE MÓVIL: reorganiza el header y ajusta sus dimensiones. */
+@media (max-width: 768px){
+    .header{
         height: auto;
     }
-    .header-container {
+    .header-container{
         flex-direction: column;
         padding: 15px 0;
     }
-    .nav-list {
+    .nav-list{
         flex-wrap: wrap;
         justify-content: center;
     }
-    .header.shrink {
+    .header.shrink{
         width: 95%;
     }
-}
-
-.header {
-    transition: all .3s ease;
-}
-
-.buscador-container {
-    transition: all .3s ease;
-
+    .header{
+        position: fixed;
+        top: 0;
+        left: 0;F
+        width: 100%;
+        height: 90px;
+        z-index: 999;
+        transition: .2s ease;
+        background:rgba(11, 17, 32, .95);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+    }
+    .header.shrink{
+        width: 70%;
+        left: 15%;
+        height: 65px;
+        border-radius: 0 0 18px 18px;
+        box-shadow: var(--shadow);
+        transition: all .3s ease;
+    }
+    .header.shrink .buscador-container{
+        opacity: 0;
+        width: 0;
+        overflow: hidden;
+        display: none;
+    }
+    /* FOOTER: define el fondo, tamaño y posición del pie de página. */
+#footer{
+        position: relative !important;
+        display: block;
+        width: 100%;
+        background-color: #080d18 !important;
+        background-image: linear-gradient(180deg, #0b1120 0%, #050911 100%) !important;
+        color: #ffffff !important;
+        border-top: 1px solid rgba(255, 255, 255, .08);
+        z-index: 1;
+    }
+    /* FOOTER PRINCIPAL: controla el espacio de la sección superior. */
+.footer-main{
+        padding-top: 70px;
+        padding-bottom: 60px;
+    }
+    /* MARCA: limita el ancho del bloque de identidad. */
+.footer-brand{
+        max-width: 330px;
+    }
+    .footer-logo{
+        display: inline-block;
+        margin-bottom: 18px;
+        color: white;
+        font-size: 28px;
+        font-weight: 800;
+        text-decoration: none;
+        letter-spacing: -.5px;
+        transition: color .25s ease;
+    }
+    .footer-logo span{
+        color: white;
+    }
+    .footer-logo{
+        color: var(--primary);
+    }
+    .footer-logo:hover{
+        color: #33bbff;
+    }
+    .footer-brand p{
+        margin-bottom: 25px;
+        color: #8b95a7;
+        font-size: .9rem;
+        line-height: 1.7;
+    }
+    /* REDES: alinea los accesos a redes sociales. */
+.footer-social{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .footer-social a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(255, 255, 255, .1);
+        border-radius: 9px;
+        background: rgba(255, 255, 255, .04);
+        color: #cbd5e1;
+        font-size: 17px;
+        text-decoration: none;
+        transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
+    }
+    .footer-social a:hover{
+        border-color: var(--primary);
+        background: var(--primary);
+        color: white;
+        transform: translateY(-3px);
+    }
+    /* COLUMNAS: organiza verticalmente los enlaces del footer. */
+.footer-column{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .footer-column h4{
+        margin-bottom: 10px;
+        color: white;
+        font-size: .9rem;
+        font-weight: 700;
+        letter-spacing: .3px;
+    }
+    .footer-column h4::after{
+        content: "";
+        display: block;
+        width: 25px;
+        height: 2px;
+        margin-top: 9px;
+        border-radius: 5px;
+        background: var(--primary);
+    }
+    .footer-column a{
+        width: fit-content;
+        color: #8b95a7;
+        font-size: .85rem;
+        text-decoration: none;
+        transition: color .2s ease, transform .2s ease;
+    }
+    .footer-column a:hover{
+        color: var(--primary);
+        transform: translateX(3px);
+    }
+    /* DIVISOR: separa las dos partes del footer. */
+.footer-divider{
+        height: 1px;
+        background: rgba(255, 255, 255, .07);
+    }
+    /* FOOTER INFERIOR: distribuye derechos y enlaces legales. */
+.footer-bottom{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        min-height: 75px;
+    }
+    .footer-bottom p{
+        margin: 0;
+        color: #64748b;
+        font-size: .8rem;
+    }
+    .footer-bottom strong{
+        color: #94a3b8;
+    }
+    /* ENLACES INFERIORES: separa los accesos legales. */
+.footer-bottom-links{
+        display: flex;
+        gap: 20px;
+    }
+    .footer-bottom-links a{
+        color: #64748b;
+        font-size: .8rem;
+        text-decoration: none;
+        transition: color .2s ease;
+    }
+    .footer-bottom-links a:hover{
+        color: var(--primary);
+    }
+    @media (max-width: 991px){
+        .footer-main{
+            padding-top: 55px;
+            padding-bottom: 45px;
+        }
+        .footer-brand{
+            max-width: 500px;
+        }
+    }
+    @media (max-width: 767px){
+        .footer-main{
+            text-align: left;
+        }
+        .footer-bottom{
+            align-items: flex-start;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px 0;
+            gap: 10px;
+        }
+        .footer-bottom-links{
+            gap: 15px;
+        }
+    }
+    @media (max-width: 575px){
+        .footer-main{
+            padding-top: 45px;
+            padding-bottom: 35px;
+        }
+        .footer-brand{
+            max-width: 100%;
+        }
+        .footer-logo{
+            font-size: 25px;
+        }
+        .footer-column a{
+            font-size: .82rem;
+        }
+        .footer-social a{
+            width: 38px;
+            height: 38px;
+        }
+    }
 }

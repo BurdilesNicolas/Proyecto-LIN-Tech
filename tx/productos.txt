@@ -1,0 +1,7 @@
+id|nombre|categoria|descripcion|precio|imagen|destacado
+rtx5090|RTX 5090|gpu|Potencia extrema para gaming y trabajo profesional.|2999999|IMG/productos/geforce-rtx-5090.jpg|true
+ryzen9|AMD Ryzen 9 9950X|procesador|Procesador de alto rendimiento para tareas exigentes.|799999|IMG/productos/Ryzen-9-9950x.jpg|true
+ddr5|DDR5 32GB|ram|Memoria rápida para gaming y productividad.|179999|IMG/productos/kingston.jpg|true
+ssd2tb|SSD NVMe 2TB|almacenamiento|Velocidad extrema para carga y almacenamiento.|249999|IMG/productos/ssd2tb.webp|false
+monitor4k|Monitor 4K|monitor|Imagen ultra nítida para trabajo y entretenimiento.|549999|IMG/productos/Odyssey-G7.jpg|true
+logitechgpro|Logitech G Pro X|periferico|Precisión y rendimiento para esports.|129999|IMG/productos/LogitechGproX.jpg|false

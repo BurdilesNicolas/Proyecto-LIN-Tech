@@ -1,0 +1,61 @@
+<!-- HEADER: contiene el logo, buscador, navegación y acciones del usuario. -->
+<header id="header" class="header">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid header-container">
+            <!-- LOGO: dirige a la página principal. -->
+            <a href="index.html" class="logo">
+                <span class="logo-lin">LIN</span>
+                <span class="logo-tech">TECH</span>
+            </a>
+            <!-- MENÚ: permite abrir la navegación en pantallas pequeñas. -->
+            <button class="navbar-toggler menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarPrincipal" aria-controls="navbarPrincipal" aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarPrincipal">
+                <!-- BUSCADOR: permite ingresar búsquedas de productos. -->
+                <div class="buscador-container">
+                    <input type="search" class="buscador-input" placeholder="Buscar productos...">
+                </div>
+                <!-- NAVEGACIÓN: contiene los enlaces principales del sitio. -->
+                <nav class="nav">
+                    <ul class="nav-list navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">
+                                Inicio
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="productos.html">
+                                Productos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Nosotros
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="terminos.html">
+                                Términos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Contacto
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- ACCIONES: contiene el carrito y el acceso de login. -->
+                <div class="header-actions">
+                    <button class="icon-btn" type="button" aria-label="Carrito">
+                        🛒
+                    </button>
+                    <button class="login-btn" type="button">
+                        login
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
