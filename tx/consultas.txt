@@ -1,0 +1,34 @@
+// Consultas SQL que usa servidor.js (tablas Productos y Clientes_Usuario de la base mydb)
+
+//Listar productos
+SELECT Id_Productos, Nombre, Categoria, Descripcion, Precio, Stock, Variacion, Imagen, Destacado FROM Productos ORDER BY Id_Productos
+
+//Mostrar un producto
+SELECT Id_Productos, Nombre, Categoria, Descripcion, Precio, Stock, Variacion, Imagen, Destacado FROM Productos WHERE Id_Productos = ?
+
+//Cargar producto
+INSERT INTO Productos (Nombre, Categoria, Descripcion, Precio, Stock, Variacion, Imagen, Destacado) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+
+//Actualizar producto
+UPDATE Productos SET Nombre = ?, Categoria = ?, Descripcion = ?, Precio = ?, Stock = ?, Variacion = COALESCE(?, Variacion), Imagen = ?, Destacado = ? WHERE Id_Productos = ?
+
+//Borrar producto
+DELETE FROM Productos WHERE Id_Productos = ?
+
+//Registrar usuario (la contraseña se guarda hasheada)
+INSERT INTO Clientes_Usuario (DNI, Nombre, Telefono, Email, Password, Foto) VALUES (?, ?, ?, ?, ?, ?)
+
+//Iniciar sesión (busca por email y compara el hash en el servidor)
+SELECT Id_Cliente, Nombre, Email, Password FROM Clientes_Usuario WHERE Email = ?
+
+//Verificar que el usuario de una sesión existe
+SELECT Id_Cliente FROM Clientes_Usuario WHERE Id_Cliente = ?
+
+//Mostrar la propia cuenta (sin contraseña)
+SELECT Id_Cliente, DNI, Nombre, Telefono, Email, Foto FROM Clientes_Usuario WHERE Id_Cliente = ?
+
+//Actualizar la propia cuenta
+UPDATE Clientes_Usuario SET DNI = ?, Nombre = ?, Telefono = ?, Email = ?, Foto = ? WHERE Id_Cliente = ?
+
+//Borrar la propia cuenta
+DELETE FROM Clientes_Usuario WHERE Id_Cliente = ?

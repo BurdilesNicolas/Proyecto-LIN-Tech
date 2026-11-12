@@ -1,46 +1,83 @@
-// Carga un componente HTML (header o footer) dentro de un contenedor por fetch
+// Carga el header y el footer compartidos y actualiza el acceso según la sesión.
+
 async function cargarComponente(idContenedor, archivoHtml) {
+    const contenedor = document.getElementById(idContenedor);
+    if (!contenedor) return;
+
     try {
-        const response = await fetch(archivoHtml);
-        if (!response.ok) {
-            throw new Error(`No se pudo cargar el archivo ${archivoHtml}`);
+        const respuesta = await fetch(archivoHtml);
+
+        if (!respuesta.ok) {
+            throw new Error(`No se pudo cargar ${archivoHtml}`);
         }
-        const data = await response.text();
-        document.getElementById(idContenedor).innerHTML = data;
+
+        contenedor.innerHTML = await respuesta.text();
+
     } catch (error) {
-        console.error("Error:", error);
+        console.error(`Error al cargar ${archivoHtml}:`, error);
     }
 }
 
-// Función principal: carga header y footer, y activa el efecto de header al hacer scroll
-async function iniciarPagina() {
-    await cargarComponente("header-container", "COMPONENTES/header.html");
-    await cargarComponente("footer-container", "COMPONENTES/footer.html");
-    const header = document.querySelector(".header");
-    const LIMITE_SCROLL = 300;
-    let hoverActivo = false;
+// Con sesión iniciada reemplaza el botón "Iniciar sesión" de header.html por el saludo y "Cerrar sesión".
+// Sin sesión no hace nada: header.html ya trae el acceso a login.html.
+function actualizarAccesoHeader() {
+    const acciones = document.querySelector('.header-actions');
+    if (!acciones || typeof Api === 'undefined') return;
 
-    // Encoge el header al pasar el límite de scroll (salvo que el mouse esté encima)
-    window.addEventListener("scroll", () => {
-        if (hoverActivo) return;
-        if (window.scrollY > LIMITE_SCROLL) {
-            header.classList.add("shrink");
-        } else {
-            header.classList.remove("shrink");
-        }
-    });
-    // Mientras el mouse está sobre el header, lo mantenemos expandido
-    header.addEventListener("mouseenter", () => {
-        hoverActivo = true;
-        header.classList.remove("shrink");
-    });
-    header.addEventListener("mouseleave", () => {
-        hoverActivo = false;
-        if (window.scrollY > LIMITE_SCROLL) {
-            header.classList.add("shrink");
-        }
+    const sesion = Api.obtenerSesion();
+    if (!sesion) return;
+
+    acciones.innerHTML = `
+        <button class="icon-btn" type="button"
+            aria-label="Carrito" title="Carrito">
+            <i class="bi bi-cart3"></i>
+        </button>
+
+        <span class="usuario-header">
+            <i class="bi bi-person-circle"></i>
+            <span>Hola, <span class="usuario-nombre"></span></span>
+        </span>
+
+        <button class="login-btn" id="cerrarSesion" type="button">
+            <i class="bi bi-box-arrow-right me-1"></i>
+            Cerrar sesión
+        </button>
+    `;
+
+    // textContent evita que un nombre con HTML se interprete como código
+    acciones.querySelector('.usuario-nombre').textContent = sesion.nombre;
+
+    // Al cerrar sesión se recarga la página para que deje de mostrar acciones que requieren sesión
+    document.getElementById('cerrarSesion').addEventListener('click', async () => {
+        await Api.cerrarSesion();
+        window.location.reload();
     });
 }
 
-iniciarPagina();
+async function iniciarPagina() {
+    await Promise.all([
+        cargarComponente('header-container', 'COMPONENTES/header.html'),
+        cargarComponente('footer-container', 'COMPONENTES/footer.html')
+    ]);
 
+    actualizarAccesoHeader();
+
+    const header = document.querySelector('.header');
+    if (!header) return;
+
+    const actualizarScroll = () => {
+        header.classList.toggle('shrink', window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', actualizarScroll, { passive: true });
+
+    header.addEventListener('mouseenter', () => {
+        header.classList.remove('shrink');
+    });
+
+    header.addEventListener('mouseleave', actualizarScroll);
+
+    actualizarScroll();
+}
+
+document.addEventListener('DOMContentLoaded', iniciarPagina);

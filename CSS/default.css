@@ -119,6 +119,40 @@ body{
     background-color: #008dcc;
 }
 
+/* LOGIN COMO ENLACE: mismo aspecto que el botón original. */
+a.login-btn{
+    display: inline-block;
+    text-decoration: none;
+}
+
+a.login-btn:hover{
+    color: white;
+}
+
+/* SESIÓN: saludo con el nombre del usuario activo (lo crea main.js). */
+.usuario-header{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    max-width: 190px;
+    color: #ddd;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.usuario-header i{
+    color: #00aaff;
+    font-size: 20px;
+}
+
+.usuario-header .usuario-nombre{
+    display: inline-block;
+    max-width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+}
+
 /* SHRINK: reduce el tamaño del header cuando se hace scroll. */
 .header.shrink{
     height: 65px;
@@ -208,7 +242,6 @@ main{
     }
 }
 
-RESPONSIVE
 
 /* RESPONSIVE: oculta el buscador cuando el ancho ya no permite mantenerlo. */
 @media (max-width: 1000px){
@@ -239,7 +272,7 @@ RESPONSIVE
     .header{
         position: fixed;
         top: 0;
-        left: 0;F
+        left: 0;
         width: 100%;
         height: 90px;
         z-index: 999;

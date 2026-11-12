@@ -1,0 +1,400 @@
+/* Contenedor principal de la página de contacto.
+   Define el fondo general y el espacio inferior del contenido. */
+.terminos-main {
+    min-height: 100vh;
+    padding-bottom: 80px;
+    background: linear-gradient(
+        180deg,
+        #071428 0%,
+        #0b1120 50%,
+        #0e1e38 100%
+    );
+}
+
+/* Introducción de la página.
+   Centra el título y los textos y controla sus espacios. */
+.introduction {
+    padding-top: 70px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+.section-label {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #3b82f6;
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.introduction h1 {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: clamp(
+        2.3rem,
+        5vw,
+        3.8rem
+    );
+    font-weight: 800;
+}
+
+.introduction-text,
+.introduction-description {
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #c1c5ca;
+    line-height: 1.75;
+}
+
+.introduction-description {
+    margin-top: 15px;
+}
+
+/* Sección que contiene la información lateral y el formulario. */
+.contact {
+    padding-bottom: 40px;
+}
+
+/* Panel lateral con información sobre la empresa.
+   Define el fondo, bordes, sombra y efecto de desenfoque. */
+.contact-aside {
+    padding: 35px;
+    background: rgba(255,255,255,.045);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 22px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 40px rgba(0,0,0,.2);
+}
+
+.aside-icon {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background: rgba(37,99,235,.15);
+    color: #3b82f6;
+    font-size: 1.5rem;
+}
+
+.aside-head h2 {
+    color: #fff;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.aside-head p {
+    color: #94a3b8;
+    line-height: 1.7;
+}
+
+/* Lista de beneficios mostrada dentro del panel lateral. */
+.aside-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.benefit-item {
+    display: flex;
+    gap: 15px;
+}
+
+.benefit-icon {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: rgba(37,99,235,.12);
+    color: #3b82f6;
+    font-size: 1.1rem;
+}
+
+.item-text h3 {
+    margin: 0 0 5px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.item-text p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: .9rem;
+    line-height: 1.6;
+}
+
+/* Contenedor visual del formulario.
+   Afecta su fondo, bordes, sombra y desenfoque. */
+.form-container {
+    padding: 35px;
+    background: rgba(255,255,255,.045);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 22px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 40px rgba(0,0,0,.2);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+/* Cada sección separa los distintos grupos de información del formulario. */
+.form-section {
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.form-section-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+.form-section-title > i {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: rgba(37,99,235,.12);
+    color: #3b82f6;
+}
+
+.form-section-title h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.form-section-title p {
+    margin: 3px 0 0;
+    color: #64748b;
+    font-size: .85rem;
+}
+
+/* Estilos de las etiquetas de los campos del formulario. */
+.form-label {
+    color: #cbd5e1;
+    font-size: .9rem;
+    font-weight: 500;
+}
+
+.form-label span {
+    color: #64748b;
+    font-weight: 400;
+}
+
+/* Campos de texto, email, teléfono, URL y demás inputs.
+   Controla su apariencia normal y cuando reciben el foco. */
+.contact-form
+.form-control {
+    min-height: 48px;
+    padding: 12px 15px;
+    background: rgba(15,23,42,.75);
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 11px;
+    color: #fff;
+}
+
+.contact-form
+.form-control::placeholder {
+    color: #64748b;
+}
+
+.contact-form
+.form-control:focus {
+    background: rgba(15,23,42,.9);
+    color: #fff;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 .2rem rgba(37,99,235,.15);
+}
+
+/* Organización de las opciones de radio y checkbox. */
+.form-check-group {
+    display: flex;
+    gap: 25px;
+}
+
+.form-check-label {
+    color: #cbd5e1;
+}
+
+.form-check-input {
+    background-color: #0f172a;
+    border-color: rgba(255,255,255,.2);
+}
+
+.form-check-input:checked {
+    background-color: #2563eb;
+    border-color: #2563eb;
+}
+
+.productos-check {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+/* Campo utilizado para escribir el mensaje.
+   Permite modificar verticalmente su tamaño. */
+.mensaje-input {
+    resize: vertical;
+    min-height: 140px !important;
+}
+
+/* Checkbox utilizado para aceptar los términos y condiciones. */
+.terminos-check {
+    margin-top: -15px;
+}
+
+.terminos-check label {
+    color: #94a3b8;
+    font-size: .9rem;
+}
+
+.terminos-check a {
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+.terminos-check a:hover {
+    text-decoration: underline;
+}
+
+/* Botón que envía la solicitud del formulario. */
+.btn-enviar {
+    width: 100%;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 12px;
+    background: #2563eb;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: .3s ease;
+}
+
+.btn-enviar:hover {
+    background: #3b82f6;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37,99,235,.25);
+}
+
+.btn-enviar i {
+    margin-right: 8px;
+}
+
+/* Ajustes para tablets y pantallas medianas. */
+@media (max-width: 992px) {
+    .introduction {
+        padding-top: 50px;
+    }
+}
+
+/* Ajustes para pantallas pequeñas.
+   Reduce espacios y reorganiza los elementos del formulario. */
+@media (max-width: 768px) {
+    .introduction {
+        padding-top: 40px;
+        padding-bottom: 35px;
+    }
+
+    .contact-aside,
+    .form-container {
+        padding: 25px;
+    }
+
+    .productos-check {
+        grid-template-columns: 1fr;
+    }
+
+    .form-check-group {
+        gap: 15px;
+    }
+}
+
+/* Ajustes para celulares pequeños. */
+@media (max-width: 576px) {
+    .introduction h1 {
+        font-size: 2.2rem;
+    }
+
+    .contact-aside,
+    .form-container {
+        padding: 20px;
+        border-radius: 18px;
+    }
+
+    .benefit-item {
+        gap: 10px;
+    }
+}
+
+/* Notificación que aparece después de enviar el formulario.
+   Por defecto está oculta y se muestra con la clase .mostrar. */
+.notificacion {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%, 100px);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 22px;
+    background: #1f2937;
+    border: 1px solid rgba(16, 185, 129, .4);
+    border-radius: 12px;
+    color: #fff;
+    font-size: .95rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s ease;
+    z-index: 9999;
+}
+
+.notificacion i {
+    color: #10b981;
+    font-size: 1.2rem;
+}
+
+.notificacion.mostrar {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Elementos de los datos de empresa.
+   La clase .deshabilitado cambia su apariencia cuando no corresponde completarlos. */
+#datos-empresa {
+    transition: .3s ease;
+}
+
+#datos-empresa.deshabilitado {
+    opacity: .45;
+}
+
+#datos-empresa.deshabilitado .form-control {
+    cursor: not-allowed;
+}
+

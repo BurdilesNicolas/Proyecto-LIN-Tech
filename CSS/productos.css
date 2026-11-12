@@ -1,5 +1,3 @@
-// Variables generales utilizadas en toda la página.
-// Afectan colores, bordes, sombras, tamaños y transiciones.
 :root {
     --bg: #0b1120;
     --bg-secondary: #111827;
@@ -15,8 +13,7 @@
     --transition: .3s ease;
 }
 
-// Contenedor principal de la tienda.
-// Define la estructura general con un sidebar y el contenido.
+
 .productos-main {
     min-height: 100vh;
     margin-top: 80px;
@@ -24,9 +21,6 @@
     display: grid;
     grid-template-columns: 260px 1fr;
 }
-
-// Barra lateral de categorías.
-// Permanece visible al desplazarse y ocupa la primera columna.
 .sidebar {
     position: sticky;
     top: 80px;
@@ -44,8 +38,7 @@
     margin-bottom: 25px;
 }
 
-// Botones utilizados para filtrar los productos por categoría.
-// Afectan la apariencia normal, el hover y la categoría activa.
+
 .categoria-btn {
     width: 100%;
     padding: 12px 15px;
@@ -68,14 +61,21 @@
     color: white;
 }
 
-// Contenedor del contenido principal.
-// Controla el espacio interno donde se muestran los productos.
+
 .contenedor-productos {
     min-width: 0;
     padding: 35px;
 }
 
-// Título y descripción de la tienda.
+
+.productos-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
 .productos-header h1 {
     color: var(--text);
     font-size: 2rem;
@@ -87,8 +87,7 @@
     margin-top: 6px;
 }
 
-// Barra de búsqueda y ordenamiento.
-// Afecta los controles utilizados para buscar y ordenar productos.
+
 .productos-toolbar {
     margin-top: 30px;
 }
@@ -126,21 +125,21 @@
     box-shadow: 0 0 0 .2rem rgba(37,99,235,.15);
 }
 
-// Muestra la cantidad de productos encontrados después del filtrado.
+
 .productos-contador {
     margin: 25px 0 5px;
     color: var(--text-secondary);
     font-size: .9rem;
 }
 
-// Contenedor que organiza las tarjetas de productos.
+
 .grid-productos {
     margin-top: 10px;
 }
 
-// Tarjetas individuales de productos.
-// Afecta tamaño, fondo, bordes, sombra y animación.
 .producto-card {
+    display: flex;
+    flex-direction: column;
     height: 100%;
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -158,13 +157,12 @@
 .producto-link {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    flex: 1;
     text-decoration: none;
     color: inherit;
 }
 
-// Imagen de cada producto.
-// Controla el tamaño de la imagen y su efecto al pasar el mouse.
+
 .producto-imagen {
     height: 240px;
     background: #0f172a;
@@ -186,9 +184,11 @@
     transform: scale(1.08);
 }
 
-// Información que aparece debajo de la imagen.
-// Organiza nombre, descripción, precio y botón.
+
 .producto-info {
+    /* index.css lo posiciona de forma absoluta (diseño de Inicio); acá debe fluir bajo la imagen. */
+    position: static;
+    transform: none;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -217,7 +217,7 @@
     font-weight: 700;
 }
 
-// Etiqueta utilizada para indicar que un producto está destacado.
+
 .producto-destacado {
     width: fit-content;
     padding: 5px 9px;
@@ -228,7 +228,6 @@
     font-weight: 600;
 }
 
-// Botón que lleva al detalle del producto.
 .btn-producto {
     display: block;
     width: 100%;
@@ -246,7 +245,6 @@
     background: var(--primary-hover);
 }
 
-// Mensaje mostrado cuando los filtros no encuentran productos.
 .sin-resultados {
     text-align: center;
     padding: 80px 20px;
@@ -263,8 +261,6 @@
     color: var(--text);
 }
 
-// Controles de paginación generados por JavaScript.
-// Afecta botones anteriores, siguientes y números de página.
 .paginacion-container {
     margin-top: 35px;
 }
@@ -298,7 +294,7 @@
     color: white;
 }
 
-// Personaliza la barra de desplazamiento del sidebar.
+
 .sidebar::-webkit-scrollbar {
     width: 6px;
 }
@@ -308,8 +304,6 @@
     border-radius: 20px;
 }
 
-// Adaptación para pantallas medianas.
-// El sidebar pasa de columna lateral a una sección superior.
 @media (max-width: 1100px) {
     .productos-main {
         display: block;
@@ -332,8 +326,7 @@
     }
 }
 
-// Adaptación para celulares y pantallas pequeñas.
-// Reduce espacios, títulos e imágenes para aprovechar mejor la pantalla.
+
 @media (max-width: 768px) {
     .contenedor-productos {
         padding: 20px;
@@ -345,5 +338,244 @@
 
     .producto-imagen {
         height: 220px;
+    }
+}
+
+/* CRUD: botones, modales y notificación para crear, editar y eliminar productos. */
+
+/* BOTÓN PRINCIPAL: crear y guardar. */
+.btn-nuevo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-nuevo:hover:not(:disabled) {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37,99,235,.25);
+}
+
+.btn-nuevo:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+/* AVISO: invita a iniciar sesión cuando no hay sesión activa. */
+.aviso-sesion {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    color: var(--text-secondary);
+    font-size: .9rem;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.aviso-sesion:hover {
+    border-color: var(--primary);
+    color: var(--text);
+}
+
+/* ACCIONES DE TARJETA: editar y eliminar, solo con sesión activa. */
+.producto-acciones {
+    display: flex;
+    gap: 10px;
+    padding: 0 20px 20px;
+}
+
+.btn-accion {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 9px 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: .9rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-editar:hover {
+    border-color: var(--primary);
+    background: rgba(37,99,235,.15);
+    color: var(--text);
+}
+
+.btn-eliminar:hover {
+    border-color: #ef4444;
+    background: rgba(239,68,68,.12);
+    color: #fca5a5;
+}
+
+/* MODALES: mismo estilo oscuro del sitio. */
+.modal-lintech .modal-content {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.modal-lintech .modal-header,
+.modal-lintech .modal-footer {
+    border-color: var(--border);
+}
+
+.modal-lintech .modal-title {
+    color: var(--text);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.modal-lintech .form-label {
+    color: #cbd5e1;
+    font-size: .9rem;
+    font-weight: 500;
+}
+
+.modal-lintech .form-control,
+.modal-lintech .form-select {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    color: var(--text);
+}
+
+.modal-lintech .form-control::placeholder {
+    color: var(--text-secondary);
+}
+
+.modal-lintech .form-control:focus,
+.modal-lintech .form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 .2rem rgba(37,99,235,.15);
+}
+
+.modal-lintech .form-control.is-invalid,
+.modal-lintech .form-select.is-invalid {
+    border-color: #ef4444;
+}
+
+.modal-lintech .form-check-input:checked {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+/* VISTA PREVIA: miniatura de la imagen ingresada. */
+.preview-imagen {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #0f172a;
+    object-fit: cover;
+}
+
+/* BOTONES SECUNDARIOS Y DE PELIGRO. */
+.btn-cancelar {
+    padding: 12px 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.btn-cancelar:hover {
+    border-color: var(--text-secondary);
+    color: var(--text);
+}
+
+.btn-peligro {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    background: #ef4444;
+    color: white;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-peligro:hover:not(:disabled) {
+    background: #f87171;
+}
+
+.btn-peligro:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+.icono-eliminar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(239,68,68,.12);
+    color: #f87171;
+    font-size: 1.5rem;
+}
+
+/* NOTIFICACIÓN: misma apariencia que la de contacto; .error la vuelve roja. */
+.notificacion {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%, 100px);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 22px;
+    background: var(--bg-card);
+    border: 1px solid rgba(16,185,129,.4);
+    border-radius: 12px;
+    color: #fff;
+    font-size: .95rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s ease;
+    z-index: 9999;
+}
+
+.notificacion i {
+    color: var(--success);
+    font-size: 1.2rem;
+}
+
+.notificacion.error {
+    border-color: rgba(239,68,68,.45);
+}
+
+.notificacion.error i {
+    color: #f87171;
+}
+
+.notificacion.mostrar {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 575px) {
+    .productos-acciones-header,
+    .btn-nuevo {
+        width: 100%;
+        justify-content: center;
     }
 }
