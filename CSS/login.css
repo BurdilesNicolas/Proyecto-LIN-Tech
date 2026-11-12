@@ -1,0 +1,335 @@
+/* LOGIN: usa la misma paleta oscura y la tarjeta de vidrio de Productos y Contacto. */
+
+/* FONDO: centra la tarjeta y agrega un degradado suave detrás. */
+.login-main{
+    min-height: calc(100vh - 90px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 15px;
+    background:
+        radial-gradient(circle at 15% 10%, rgba(37, 99, 235, .18), transparent 45%),
+        radial-gradient(circle at 85% 90%, rgba(0, 170, 255, .10), transparent 40%),
+        #0b1120;
+}
+
+/* TARJETA: contenedor principal con efecto vidrio. */
+.login-card{
+    width: 100%;
+    max-width: 980px;
+    margin: 0;
+    overflow: hidden;
+    background: rgba(255, 255, 255, .045);
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 22px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .2);
+}
+
+/* PRESENTACIÓN: panel lateral con degradado azul. */
+.login-aside{
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 50px 40px;
+    background: linear-gradient(160deg, rgba(37, 99, 235, .28), rgba(15, 23, 42, .6));
+    border-right: 1px solid rgba(255, 255, 255, .08);
+}
+
+.login-tag{
+    display: inline-block;
+    margin-bottom: 14px;
+    color: #60a5fa;
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.login-aside h2{
+    margin-bottom: 14px;
+    color: #fff;
+    font-size: 1.9rem;
+    font-weight: 800;
+    letter-spacing: -.5px;
+    line-height: 1.2;
+}
+
+.login-aside p{
+    margin: 0;
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+.login-beneficios{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.login-beneficios li{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.login-beneficios li > i{
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: rgba(37, 99, 235, .18);
+    color: #60a5fa;
+    font-size: 1.1rem;
+}
+
+.login-beneficios strong{
+    display: block;
+    color: #fff;
+    font-size: .95rem;
+}
+
+.login-beneficios span{
+    color: #94a3b8;
+    font-size: .85rem;
+}
+
+/* CUERPO: zona de formularios. */
+.login-body{
+    padding: 45px;
+}
+
+/* SELECTOR: botones para alternar entre login y registro. */
+.login-tabs{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    padding: 5px;
+    margin-bottom: 30px;
+    background: rgba(15, 23, 42, .75);
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 12px;
+}
+
+.login-tab{
+    padding: 10px;
+    border: none;
+    border-radius: 9px;
+    background: transparent;
+    color: #94a3b8;
+    font-weight: 600;
+    transition: .3s ease;
+}
+
+.login-tab:hover{
+    color: #fff;
+}
+
+.login-tab.active{
+    background: #2563eb;
+    color: #fff;
+}
+
+/* TÍTULO: encabezado que cambia según el formulario activo. */
+.login-heading{
+    margin-bottom: 25px;
+}
+
+.login-heading h1{
+    margin: 0;
+    color: #fff;
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.login-heading p{
+    margin: 6px 0 0;
+    color: #94a3b8;
+}
+
+/* ALERTA: mensaje de error general. */
+.login-alerta{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 12px 15px;
+    background: rgba(239, 68, 68, .1);
+    border: 1px solid rgba(239, 68, 68, .35);
+    border-radius: 11px;
+    color: #fca5a5;
+    font-size: .9rem;
+}
+
+.login-alerta i{
+    font-size: 1.1rem;
+}
+
+/* FORMULARIO: separa los campos entre sí. */
+.login-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-form .form-label{
+    margin-bottom: 7px;
+    color: #cbd5e1;
+    font-size: .9rem;
+    font-weight: 500;
+}
+
+/* CAMPOS: mismo aspecto que el formulario de contacto, con ícono a la izquierda. */
+.campo-icono{
+    position: relative;
+}
+
+.campo-icono > i{
+    position: absolute;
+    top: 24px;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #64748b;
+    pointer-events: none;
+    transition: color .3s ease;
+}
+
+.campo-icono:focus-within > i{
+    color: #3b82f6;
+}
+
+.login-form .form-control{
+    min-height: 48px;
+    padding: 12px 15px 12px 44px;
+    background: rgba(15, 23, 42, .75);
+    border: 1px solid rgba(255, 255, 255, .09);
+    border-radius: 11px;
+    color: #fff;
+}
+
+.login-form .form-control::placeholder{
+    color: #64748b;
+}
+
+.login-form .form-control:focus{
+    background: rgba(15, 23, 42, .9);
+    color: #fff;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 .2rem rgba(37, 99, 235, .15);
+}
+
+/* ERROR DE CAMPO: borde rojo sin el ícono de Bootstrap (que taparía el ojo de la contraseña). */
+.login-form .form-control.is-invalid{
+    background-image: none;
+    border-color: #ef4444;
+}
+
+.login-form .form-control.is-invalid:focus{
+    box-shadow: 0 0 0 .2rem rgba(239, 68, 68, .15);
+}
+
+.login-form .invalid-feedback{
+    color: #fca5a5;
+    font-size: .82rem;
+}
+
+/* AUTOCOMPLETADO: evita el fondo claro que pone el navegador. */
+.login-form .form-control:-webkit-autofill{
+    -webkit-text-fill-color: #fff;
+    -webkit-box-shadow: 0 0 0 1000px #0f172a inset;
+    caret-color: #fff;
+}
+
+/* OJO: muestra u oculta la contraseña. */
+.btn-ver-clave{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48px;
+    height: 48px;
+    border: none;
+    background: transparent;
+    color: #64748b;
+    transition: color .2s ease;
+}
+
+.btn-ver-clave:hover{
+    color: #fff;
+}
+
+.campo-icono:has(.btn-ver-clave) .form-control{
+    padding-right: 48px;
+}
+
+/* BOTÓN PRINCIPAL: igual al botón de enviar de contacto. */
+.btn-login{
+    width: 100%;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 12px;
+    background: #2563eb;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: .3s ease;
+}
+
+.btn-login:hover:not(:disabled){
+    background: #3b82f6;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, .25);
+}
+
+.btn-login:disabled{
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+.btn-login i{
+    margin-right: 8px;
+}
+
+/* CAMBIO DE FORMULARIO: texto con enlace al otro modo. */
+.login-cambio{
+    margin: 0;
+    color: #94a3b8;
+    font-size: .9rem;
+    text-align: center;
+}
+
+.login-enlace{
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #3b82f6;
+    font-weight: 600;
+}
+
+.login-enlace:hover{
+    text-decoration: underline;
+}
+
+/* TABLET Y MÓVIL: reduce los espacios internos. */
+@media (max-width: 991px){
+    .login-main{
+        min-height: calc(100vh - 75px);
+        padding: 40px 15px;
+    }
+    .login-card{
+        max-width: 520px;
+    }
+}
+
+@media (max-width: 575px){
+    .login-body{
+        padding: 28px 20px;
+    }
+    .login-heading h1{
+        font-size: 1.4rem;
+    }
+}

@@ -1,0 +1,65 @@
+========================================================================
+GUÍA DE INSTALACIÓN Y EJECUCIÓN LOCAL DEL PROYECTO
+========================================================================
+
+Esta guía explica los pasos necesarios para configurar la base de datos,
+encender el servidor backend y visualizar la aplicación web en tu PC.
+
+------------------------------------------------------------------------
+1. REQUISITOS PREVIOS
+------------------------------------------------------------------------
+Asegúrate de tener instalados los siguientes programas antes de comenzar:
+- Node.js (versión 18 o superior recomendada): https://nodejs.org/
+- MySQL Server y MySQL Workbench (o XAMPP/WAMP): https://dev.mysql.com/
+- Visual Studio Code (con la extensión "Live Server" instalada)
+
+------------------------------------------------------------------------
+2. CONFIGURACIÓN DE LA BASE DE DATOS (MySQL)
+------------------------------------------------------------------------
+1. Abre MySQL Workbench y conéctate a tu servidor local.
+2. Crea una nueva pestaña de consultas (ícono de hoja con "+ SQL").
+3. Abre el archivo "BasedeDatos.sql" del proyecto, copia su contenido
+   y ejecútalo (ícono del rayo amarillo) para crear la base de datos `mydb`
+   y todas sus tablas.
+   * Nota: Si ya tenías una versión anterior de `mydb`, ejecuta en su lugar
+     el script de actualización para agregar las columnas faltantes
+     (`Password` y `Telefono` como VARCHAR).
+4. Verifica en el archivo `servidor.js` que los datos de conexión a MySQL
+   (usuario, contraseña, host y nombre de base de datos `mydb`) coincidan
+   con la configuración de tu computadora.
+
+------------------------------------------------------------------------
+3. ENCENDER EL SERVIDOR BACKEND (Node.js)
+------------------------------------------------------------------------
+1. Abre la carpeta raíz del proyecto en Visual Studio Code (o en una terminal).
+2. Abre una terminal integrada (Ctrl + Ñ o menú Terminal -> Nueva terminal).
+3. Instala las dependencias necesarias ejecutando:
+   npm install
+4. Inicia el servidor en modo desarrollo ejecutando:
+   node --watch servidor.js
+5. Deberías ver en la consola un mensaje indicando que el servidor está
+   corriendo (por ejemplo, en el puerto 3000) y conectado a MySQL.
+   * Importante: No cierres esta terminal mientras uses la página.
+
+------------------------------------------------------------------------
+4. ABRIR LA INTERFAZ WEB EN EL NAVEGADOR (Frontend)
+------------------------------------------------------------------------
+1. Con el servidor de Node.js encendido en segundo plano, ve al explorador
+   de archivos de Visual Studio Code.
+2. Haz clic derecho sobre el archivo HTML principal (por ejemplo, `index.html`).
+3. Selecciona la opción "Open with Live Server" (o haz clic en "Go Live"
+   en la barra inferior derecha de VS Code).
+4. Se abrirá automáticamente tu navegador mostrando la página web lista
+   para registrar usuarios, iniciar sesión y navegar por el catálogo.
+
+------------------------------------------------------------------------
+5. SOLUCIÓN DE PROBLEMAS COMUNES
+------------------------------------------------------------------------
+- "Error interno del servidor" al registrarse:
+  Verifica que el servicio de MySQL esté encendido y que la tabla
+  `clientes_usuario` tenga la columna `Password` (VARCHAR 255) y
+  `Telefono` (VARCHAR 20).
+- Error de conexión en consola (ECONNREFUSED):
+  Revisa que la contraseña de usuario `root` en `servidor.js` sea la
+  misma que configuraste al instalar MySQL en tu PC.
+========================================================================

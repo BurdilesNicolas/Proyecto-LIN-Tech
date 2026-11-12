@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="CSS/productos.css">
-    <title>Document</title>
+    <title>LIN-Tech | Productos</title>
 </head>
 <body>
     <!-- HEADER: se carga dinámicamente desde header.html. -->
@@ -53,6 +53,17 @@
                     <p>
                         Descubrí nuestra selección de productos tecnológicos.
                     </p>
+                </div>
+                <!-- ACCIONES: con sesión activa se puede crear un producto; sin sesión se invita a iniciarla. -->
+                <div class="productos-acciones-header">
+                    <button type="button" id="btnNuevoProducto" class="btn-nuevo d-none">
+                        <i class="bi bi-plus-lg"></i>
+                        Nuevo producto
+                    </button>
+                    <a href="login.html" id="avisoSesion" class="aviso-sesion d-none">
+                        <i class="bi bi-lock"></i>
+                        Iniciá sesión para agregar o editar productos
+                    </a>
                 </div>
             </div>
             <!-- TOOLBAR: permite buscar productos y cambiar su orden. -->
@@ -106,8 +117,101 @@
             </nav>
         </section>
     </main>
+    <!-- MODAL PRODUCTO: formulario compartido para crear y editar. -->
+    <div class="modal fade modal-lintech" id="modalProducto" tabindex="-1" aria-labelledby="modalProductoTitulo" aria-hidden="true" data-bs-theme="dark">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <form id="formProducto" novalidate>
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="modalProductoTitulo">Nuevo producto</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="productoId">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label for="productoNombre" class="form-label">Nombre</label>
+                                <input type="text" id="productoNombre" class="form-control" maxlength="45" placeholder="Ej: RTX 5090">
+                                <div class="invalid-feedback">Ingresá el nombre del producto.</div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="productoCategoria" class="form-label">Categoría</label>
+                                <select id="productoCategoria" class="form-select">
+                                    <option value="">Elegí una categoría</option>
+                                </select>
+                                <div class="invalid-feedback">Elegí una categoría.</div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <label for="productoPrecio" class="form-label">Precio ($)</label>
+                                <input type="number" id="productoPrecio" class="form-control" min="1" step="1" placeholder="0">
+                                <div class="invalid-feedback">Precio mayor a 0.</div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <label for="productoStock" class="form-label">Stock</label>
+                                <input type="number" id="productoStock" class="form-control" min="0" step="1" placeholder="0">
+                                <div class="invalid-feedback">Stock 0 o más.</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="productoDescripcion" class="form-label">Descripción</label>
+                                <textarea id="productoDescripcion" class="form-control" rows="3" maxlength="160" placeholder="Describí brevemente el producto"></textarea>
+                                <div class="invalid-feedback">Ingresá una descripción.</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="productoImagen" class="form-label">Imagen <span class="text-secondary">(opcional)</span></label>
+                                <div class="d-flex align-items-center gap-3">
+                                    <img id="previewImagen" class="preview-imagen" alt="Vista previa">
+                                    <input type="text" id="productoImagen" class="form-control" placeholder="IMG/productos/archivo.jpg o URL">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="productoDestacado">
+                                    <label class="form-check-label" for="productoDestacado">Producto destacado</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" id="btnGuardarProducto" class="btn-nuevo">
+                            <i class="bi bi-check-lg"></i>
+                            Guardar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL ELIMINAR: pide confirmación antes de borrar un producto. -->
+    <div class="modal fade modal-lintech" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminarTitulo" aria-hidden="true" data-bs-theme="dark">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content">
+                <div class="modal-body text-center p-4">
+                    <i class="bi bi-trash3 icono-eliminar"></i>
+                    <h2 class="modal-title fs-5 mt-3" id="modalEliminarTitulo">¿Eliminar producto?</h2>
+                    <p class="text-secondary mt-2 mb-4">
+                        Vas a eliminar <strong id="nombreEliminar" class="text-white"></strong>. Esta acción no se puede deshacer.
+                    </p>
+                    <div class="d-flex gap-2 justify-content-center">
+                        <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" id="btnConfirmarEliminar" class="btn-peligro">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOTIFICACIÓN: confirma o informa el resultado de cada acción. -->
+    <div id="notificacion" class="notificacion" role="status" aria-live="polite">
+        <i class="bi bi-check-circle-fill"></i>
+        <span id="notificacionTexto"></span>
+    </div>
+
     <!-- FOOTER: se carga dinámicamente desde footer.html. -->
 <div id="footer-container"></div>
+    <script src="JavaScript/api.js" defer></script>
+    <script src="JavaScript/comun.js" defer></script>
     <script src="main.js" defer></script>
     <script src="JavaScript/productos.js" defer></script>
 </body>

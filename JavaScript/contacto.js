@@ -55,4 +55,4 @@ formulario.addEventListener("submit", function(evento) {
     // Después de reiniciar el formulario, actualiza nuevamente
     // el estado de los datos de empresa.
     actualizarDatosEmpresa();
-});
+});

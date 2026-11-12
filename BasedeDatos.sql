@@ -23,8 +23,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Clientes_Usuario` (
   `Id_Cliente` INT NOT NULL AUTO_INCREMENT,
   `DNI` INT NOT NULL,
   `Nombre` VARCHAR(45) NOT NULL,
-  `Telefono` INT NOT NULL,
+  `Telefono` VARCHAR(20) NOT NULL,
   `Email` VARCHAR(45) NOT NULL,
+  `Password` VARCHAR(255) NOT NULL,
   `Foto` VARCHAR(45) NULL,
   PRIMARY KEY (`Id_Cliente`),
   UNIQUE INDEX `Id_clientes_UNIQUE` (`Id_Cliente` ASC) VISIBLE,
@@ -57,12 +58,14 @@ DROP TABLE IF EXISTS `mydb`.`Productos` ;
 CREATE TABLE IF NOT EXISTS `mydb`.`Productos` (
   `Id_Productos` INT NOT NULL AUTO_INCREMENT,
   `Stock` INT NOT NULL,
-  `Descripcion` VARCHAR(45) NOT NULL,
+  `Descripcion` VARCHAR(160) NOT NULL,
   `Categoria` VARCHAR(45) NOT NULL,
   `Variacion` VARCHAR(45) NOT NULL,
   `Precio` DECIMAL(10) NOT NULL,
   `Nombre` VARCHAR(45) NOT NULL,
-  `Vendedor_Id_Vendedor` INT NOT NULL,
+  `Imagen` VARCHAR(255) NULL,
+  `Destacado` TINYINT(1) NOT NULL DEFAULT 0,
+  `Vendedor_Id_Vendedor` INT NULL,
   PRIMARY KEY (`Id_Productos`),
   UNIQUE INDEX `Id_Productos_UNIQUE` (`Id_Productos` ASC) VISIBLE,
   INDEX `fk_Productos_Vendedor1_idx` (`Vendedor_Id_Vendedor` ASC) VISIBLE,
@@ -205,6 +208,18 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Compra_Productos` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Datos iniciales: productos del catálogo
+-- -----------------------------------------------------
+INSERT INTO `mydb`.`Productos` (`Nombre`, `Categoria`, `Descripcion`, `Precio`, `Stock`, `Variacion`, `Imagen`, `Destacado`) VALUES
+('RTX 5090', 'gpu', 'Potencia extrema para gaming y trabajo profesional.', 2999999, 10, 'Única', 'IMG/productos/geforce-rtx-5090.jpg', 1),
+('AMD Ryzen 9 9950X', 'procesador', 'Procesador de alto rendimiento para tareas exigentes.', 799999, 10, 'Única', 'IMG/productos/Ryzen-9-9950x.jpg', 1),
+('DDR5 32GB', 'ram', 'Memoria rápida para gaming y productividad.', 179999, 10, 'Única', 'IMG/productos/kingston.jpg', 1),
+('SSD NVMe 2TB', 'almacenamiento', 'Velocidad extrema para carga y almacenamiento.', 249999, 10, 'Única', 'IMG/productos/ssd2tb.webp', 0),
+('Monitor 4K', 'monitor', 'Imagen ultra nítida para trabajo y entretenimiento.', 549999, 10, 'Única', 'IMG/productos/Odyssey-G7.jpg', 1),
+('Logitech G Pro X', 'periferico', 'Precisión y rendimiento para esports.', 129999, 10, 'Única', 'IMG/productos/LogitechGproX.jpg', 0);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

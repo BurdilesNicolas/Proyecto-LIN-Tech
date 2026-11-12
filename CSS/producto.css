@@ -1,0 +1,156 @@
+/* DETALLE DE PRODUCTO: misma paleta oscura que Productos y Login. */
+
+.producto-main{
+    --pd-card: #1f2937;
+    --pd-primary: #2563eb;
+    --pd-primary-hover: #3b82f6;
+    --pd-text: #f8fafc;
+    --pd-muted: #94a3b8;
+    --pd-success: #10b981;
+    --pd-border: rgba(255, 255, 255, .08);
+    min-height: calc(100vh - 90px);
+    padding: 40px 0 70px;
+    background:
+        radial-gradient(circle at 15% 10%, rgba(37, 99, 235, .15), transparent 45%),
+        #0b1120;
+}
+
+/* VOLVER: enlace superior hacia la tienda. */
+.volver-tienda{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 30px;
+    color: var(--pd-muted);
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.volver-tienda:hover{
+    color: var(--pd-text);
+}
+
+/* IMAGEN: tarjeta con la foto del producto. */
+.detalle-imagen{
+    overflow: hidden;
+    background: #0f172a;
+    border: 1px solid var(--pd-border);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+}
+
+.detalle-imagen img{
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+/* INFORMACIÓN: nombre, precio, stock y descripción. */
+.detalle-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.detalle-categoria{
+    color: #60a5fa;
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.detalle-info .producto-destacado{
+    padding: 5px 9px;
+    border-radius: 7px;
+    background: rgba(37, 99, 235, .15);
+    color: #60a5fa;
+    font-size: .75rem;
+    font-weight: 600;
+}
+
+.detalle-info h1{
+    margin: 0;
+    color: var(--pd-text);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -.5px;
+}
+
+.detalle-precio{
+    color: var(--pd-success);
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.detalle-stock{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .95rem;
+    font-weight: 600;
+}
+
+.detalle-stock.con-stock{
+    color: var(--pd-success);
+}
+
+.detalle-stock.sin-stock{
+    color: #f87171;
+}
+
+.detalle-descripcion{
+    margin: 0;
+    color: var(--pd-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* BOTÓN: vuelve al catálogo. */
+.btn-volver{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 13px 24px;
+    border-radius: 12px;
+    background: var(--pd-primary);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .3s ease;
+}
+
+.btn-volver:hover{
+    background: var(--pd-primary-hover);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, .25);
+}
+
+/* ESTADO: mensajes de carga o de producto inexistente. */
+.detalle-estado{
+    padding: 80px 20px;
+    color: var(--pd-muted);
+    text-align: center;
+}
+
+.detalle-estado i{
+    color: var(--pd-primary);
+    font-size: 3rem;
+}
+
+.detalle-estado h1{
+    margin: 15px 0 25px;
+    color: var(--pd-text);
+    font-size: 1.6rem;
+}
+
+@media (max-width: 991px){
+    .producto-main{
+        min-height: calc(100vh - 75px);
+        padding-top: 30px;
+    }
+}
